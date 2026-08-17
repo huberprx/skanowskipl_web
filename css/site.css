@@ -18,6 +18,11 @@
 
 html {
   background: #0b0e0c;
+  scroll-behavior: smooth;
+}
+
+html.lenis {
+  scroll-behavior: auto;
 }
 
 body {
@@ -101,6 +106,14 @@ button {
     cursor: none;
   }
 
+  body.fine button.figure {
+    cursor: grab;
+  }
+
+  body.fine button.figure.is-drag {
+    cursor: grabbing;
+  }
+
   .cursor {
     display: grid;
     place-items: center;
@@ -172,6 +185,10 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 22px 28px;
+  background: rgba(11, 14, 12, 0.72);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border-bottom: 1px solid rgba(232, 223, 208, 0.1);
 }
 
 .bar__brand {
@@ -181,6 +198,7 @@ button {
   font-family: var(--serif);
   font-size: 18px;
   font-weight: 500;
+  color: var(--ink);
 }
 
 .bar__brand img {
@@ -193,20 +211,36 @@ button {
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--mute);
+}
+
+.bar nav a {
+  color: rgba(232, 223, 208, 0.92);
 }
 
 .bar nav a:hover {
-  color: var(--ink);
+  color: #fff;
 }
 
 .figure {
   position: fixed;
-  z-index: 45;
+  z-index: 55;
   right: 22px;
   top: 38%;
   width: 54px;
   background: none;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.figure::after {
+  content: "";
+  position: absolute;
+  inset: -18px -26px;
+}
+
+.figure.is-drag {
+  cursor: grabbing;
 }
 
 .figure svg {
@@ -322,6 +356,14 @@ button {
   color: #6a5f4e;
 }
 
+.survey,
+.plates,
+.booking,
+.colophon,
+#top {
+  scroll-margin-top: 88px;
+}
+
 .survey {
   padding: 120px 28px 80px;
 }
@@ -350,12 +392,23 @@ button {
   line-height: 0.92;
 }
 
+.survey__lead,
+.instrument__note,
+.booking__lead {
+  max-width: 46ch;
+  padding: 18px 20px;
+  color: rgba(232, 223, 208, 0.9);
+  font-size: 17px;
+  line-height: 1.55;
+  background: rgba(11, 14, 12, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
 .survey__lead {
   max-width: 42ch;
   margin-top: 20px;
-  color: var(--mute);
-  font-size: 17px;
-  line-height: 1.55;
 }
 
 .instrument {
@@ -397,11 +450,7 @@ button {
 }
 
 .instrument__note {
-  max-width: 46ch;
   margin-top: 22px;
-  color: var(--mute);
-  font-size: 17px;
-  line-height: 1.55;
 }
 
 .instrument__caption {
@@ -430,18 +479,22 @@ button {
   color: var(--mute);
 }
 
-.instrument__data {
-  text-align: right;
+.instrument__data,
+.walk-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 14px;
   font-size: 12px;
   letter-spacing: 0.08em;
   color: var(--mute);
-  align-self: end;
 }
 
-.instrument__data a {
-  display: inline-block;
-  margin-top: 8px;
+.instrument__data a,
+.walk-data a {
   color: var(--ink);
+  text-decoration: none;
   border-bottom: 1px solid var(--gold);
   padding-bottom: 2px;
 }
@@ -483,6 +536,14 @@ button {
   transform: scale(1.04);
 }
 
+.plate__txt {
+  padding: 22px 24px 24px;
+  background: rgba(11, 14, 12, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
 .plate__txt span {
   color: var(--gold);
   letter-spacing: 0.18em;
@@ -500,7 +561,7 @@ button {
 
 .plate__txt p {
   max-width: 38ch;
-  color: var(--mute);
+  color: rgba(232, 223, 208, 0.9);
   font-size: 17px;
   line-height: 1.55;
 }
@@ -525,7 +586,7 @@ button {
     grid-template-columns: 0.75fr 1.25fr;
   }
 
-  .plate--flip .plate__img {
+  .plate--flip .plate__media {
     order: 2;
   }
 }
@@ -544,11 +605,8 @@ button {
 }
 
 .booking__lead {
-  max-width: 42ch;
+  max-width: 54ch;
   margin-top: 20px;
-  color: var(--mute);
-  font-size: 17px;
-  line-height: 1.55;
 }
 
 .booking__frame {
@@ -558,7 +616,8 @@ button {
   margin-top: 40px;
   border: 0;
   border-radius: 12px;
-  background: #fff;
+  background: transparent;
+  opacity: 0.8;
 }
 
 .colophon {
@@ -638,7 +697,9 @@ button {
     flex-direction: column;
   }
 
-  .instrument__data {
+  .instrument__data,
+  .walk-data {
+    align-items: flex-start;
     text-align: left;
   }
 }

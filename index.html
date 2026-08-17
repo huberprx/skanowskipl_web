@@ -41,7 +41,7 @@
       </nav>
     </header>
 
-    <button class="figure" id="figure" type="button" aria-label="Przewodnik ścieżki">
+    <button class="figure" id="figure" type="button" draggable="false" aria-label="Przewodnik ścieżki — przeciągnij, aby przewinąć stronę">
       <svg viewBox="0 0 80 120" fill="none" aria-hidden="true">
         <circle cx="40" cy="18" r="13" fill="#E7B63A" />
         <rect class="leg l" x="28" y="62" width="9" height="40" rx="4.5" fill="#E7B63A" />
@@ -69,11 +69,11 @@
       </section>
 
       <section class="practice">
-        <p class="practice__kicker">01 — O pracy</p>
+        <p class="practice__kicker">01 — Główna korzyść</p>
         <h2>
           Wirtualne spacery na Mapach Google.<br />
           Raz zrobione — zostają na zawsze.<br />
-          <em>Jednorazowy koszt. Zero utrzymania.</em>
+          <em>Bez dodatkowych kosztów.</em>
         </h2>
       </section>
 
@@ -108,6 +108,10 @@
             <div class="instrument__mask"></div>
             <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
           </div>
+          <div class="walk-data">
+            <p id="cap-geo">51.9217° N  15.4712° E</p>
+            <a id="cap-maps" href="https://maps.app.goo.gl/nxefdYR7dACwcZRd8" target="_blank" rel="noopener">Mapy Google ↗</a>
+          </div>
           <p class="instrument__note">
             Uczeń, turysta albo leśnik przechodzi trasę z domu,
             w Mapach, które już zna, i planuje tę prawdziwą.
@@ -120,24 +124,26 @@
               <h3 id="cap-title">Leśna ścieżka</h3>
               <p id="cap-place">Nadleśnictwo Zielona Góra</p>
             </div>
-            <div class="instrument__data">
-              <p id="cap-geo">51.9217° N  15.4712° E</p>
-              <a id="cap-maps" href="#" target="_blank" rel="noopener">Mapy Google ↗</a>
-            </div>
           </div>
         </div>
       </section>
 
       <section class="plates" id="plates">
         <article class="plate plate--flip" data-tour="smolarnia">
-          <div class="plate__img plate__img--walk">
-            <iframe
-              title="Ścieżka Nad Bukówką — wirtualny spacer"
-              src="https://www.google.com/maps/embed?pb=!4v1786981345042!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRE9rZV9wUUE.!2m2!1d53.02581296632936!2d16.35970694879955!3f326.88108017618265!4f-1.8031326286198777!5f0.4000000000000002"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
+          <div class="plate__media">
+            <div class="plate__img plate__img--walk">
+              <iframe
+                title="Ścieżka Nad Bukówką — wirtualny spacer"
+                src="https://www.google.com/maps/embed?pb=!4v1786981345042!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRE9rZV9wUUE.!2m2!1d53.02581296632936!2d16.35970694879955!3f326.88108017618265!4f-1.8031326286198777!5f0.4000000000000002"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <div class="walk-data">
+              <p>53.0258° N  16.3597° E</p>
+              <a href="https://maps.app.goo.gl/k4Xvu9pEimKkro5A8" target="_blank" rel="noopener">Mapy Google ↗</a>
+            </div>
           </div>
           <div class="plate__txt">
             <span>01</span>
@@ -150,14 +156,20 @@
         </article>
 
         <article class="plate" data-tour="tablica">
-          <div class="plate__img plate__img--walk">
-            <iframe
-              title="Tablica Grzyby, ścieżka Do wieży"
-              src="https://www.google.com/maps/embed?pb=!4v1786982000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0b1BBbkFF!2m2!1d51.9233256!2d15.4781152!3f336.01!4f2.11!5f0.537"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
+          <div class="plate__media">
+            <div class="plate__img plate__img--walk">
+              <iframe
+                title="Tablica Grzyby, ścieżka Do wieży"
+                src="https://www.google.com/maps/embed?pb=!4v1786982000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0b1BBbkFF!2m2!1d51.9233256!2d15.4781152!3f336.01!4f2.11!5f0.537"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
+            <div class="walk-data">
+              <p>51.9233° N  15.4781° E</p>
+              <a href="https://maps.app.goo.gl/sQiz5ryr6LVRKrGZ8" target="_blank" rel="noopener">Mapy Google ↗</a>
+            </div>
           </div>
           <div class="plate__txt">
             <span>02</span>
@@ -173,9 +185,11 @@
 
       <section class="booking" id="booking">
         <p class="booking__kicker">03 — Rezerwacja</p>
-        <h2>Wybierz termin.</h2>
+        <h2>Zarezerwuj już termin.</h2>
         <p class="booking__lead">
-          Usługa i wolny dzień — bez telefonu. Potwierdzenie przyjdzie na e-mail.
+          Najpiękniejsze zdjęcia wychodzą wczesną wiosną, latem i jesienią.
+          Jeśli zależy Ci na aurze zimowej — też jestem otwarty
+          i z przyjemnością podejmę się tego wyzwania.
         </p>
         <iframe
           class="booking__frame"
