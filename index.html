@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skanowski — wirtualne spacery</title>
+    <meta
+      name="description"
+      content="Wirtualne spacery 360°. Ścieżki dydaktyczne na Mapach Google. Skanowski."
+    />
+    <meta name="theme-color" content="#0b0e0c" />
+    <link rel="icon" href="assets/logo-skanowski.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="spine" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><b></b></div>
+
+    <div class="boot" id="boot">
+      <img src="assets/logo-skanowski.png" alt="" />
+      <i></i>
+    </div>
+
+    <header class="bar">
+      <a class="bar__brand" href="#top">
+        <img src="assets/logo-skanowski.png" alt="" />
+        <span>Skanowski</span>
+      </a>
+      <nav>
+        <a href="#survey">Spacer</a>
+        <a href="#plates">Przystanki</a>
+        <a href="#booking">Rezerwacja</a>
+        <a href="#colophon">Kontakt</a>
+      </nav>
+    </header>
+
+    <button class="figure" id="figure" type="button" aria-label="Przewodnik ścieżki">
+      <svg viewBox="0 0 80 120" fill="none" aria-hidden="true">
+        <circle cx="40" cy="18" r="13" fill="#E7B63A" />
+        <rect class="leg l" x="28" y="62" width="9" height="40" rx="4.5" fill="#E7B63A" />
+        <rect class="leg r" x="43" y="62" width="9" height="40" rx="4.5" fill="#D4A430" />
+        <path d="M26 34c0-4 6-8 14-8s14 4 14 8v28c0 5-6 9-14 9s-14-4-14-9V34z" fill="#E7B63A" />
+        <path d="M18 40h11l4 20H22L18 40z" fill="#EFE8DA" />
+        <path d="M29 40h11l-1 20H30L29 40z" fill="#F7F1E6" />
+        <path d="M40 40h11l4 20H41L40 40z" fill="#EFE8DA" />
+        <path d="M51 40h11l-4 20H47l4-20z" fill="#F7F1E6" />
+        <circle cx="18" cy="50" r="4.5" fill="#E7B63A" />
+        <circle cx="62" cy="50" r="4.5" fill="#E7B63A" />
+      </svg>
+    </button>
+
+    <main id="top">
+      <section class="hero">
+        <h1 class="sr-only">Skanowski</h1>
+        <div class="hero__still">
+          <img src="assets/hero.jpg" alt="Jesienna droga i drzewo" />
+        </div>
+        <div class="hero__shade"></div>
+        <div class="hero__copy">
+          <p class="hero__sub">Wirtualne spacery ścieżek dydaktycznych, obiektów turystycznych i natury — na Mapach Google.</p>
+        </div>
+      </section>
+
+      <section class="practice">
+        <p class="practice__kicker">01 — O pracy</p>
+        <h2>
+          Wirtualne spacery na Mapach Google.<br />
+          Raz zrobione — zostają na zawsze.<br />
+          <em>Jednorazowy koszt. Zero utrzymania.</em>
+        </h2>
+      </section>
+
+      <section class="note">
+        <p>
+          Zanim ruszysz, wiesz już, dokąd idziesz<br />
+          i na co się przygotować.<br />
+          <em>A gdy się zgubisz — zawsze się odnajdziesz.</em>
+        </p>
+      </section>
+
+      <section class="survey" id="survey">
+        <header class="survey__head">
+          <p>02 — Spacer</p>
+          <h2>Wejdź w ścieżkę</h2>
+          <p class="survey__lead">
+            To ten sam wirtualny spacer co na Mapach Google — leśna droga
+            jesienią, Nadleśnictwo Zielona Góra. Rozglądaj się i idź dalej
+            strzałkami.
+          </p>
+        </header>
+
+        <div class="instrument">
+          <div class="instrument__frame">
+            <iframe
+              id="pano"
+              title="Wirtualny spacer na Mapach Google"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="instrument__mask"></div>
+            <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
+          </div>
+          <p class="instrument__note">
+            Uczeń, turysta albo leśnik przechodzi trasę z domu,
+            w Mapach, które już zna, i planuje tę prawdziwą.
+            Nie stawiam serwera, nie buduję aplikacji, nie biorę abonamentu.
+            Płacisz za wykonanie. Spacer zostaje.
+          </p>
+          <div class="instrument__caption">
+            <div>
+              <span id="cap-no">01</span>
+              <h3 id="cap-title">Leśna ścieżka</h3>
+              <p id="cap-place">Nadleśnictwo Zielona Góra</p>
+            </div>
+            <div class="instrument__data">
+              <p id="cap-geo">51.9217° N  15.4712° E</p>
+              <a id="cap-maps" href="#" target="_blank" rel="noopener">Mapy Google ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="plates" id="plates">
+        <article class="plate plate--flip" data-tour="smolarnia">
+          <div class="plate__img plate__img--walk">
+            <iframe
+              title="Ścieżka Nad Bukówką — wirtualny spacer"
+              src="https://www.google.com/maps/embed?pb=!4v1786981345042!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRE9rZV9wUUE.!2m2!1d53.02581296632936!2d16.35970694879955!3f326.88108017618265!4f-1.8031326286198777!5f0.4000000000000002"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <div class="plate__txt">
+            <span>01</span>
+            <h3>Nad Bukówką.</h3>
+            <p>
+              Pomost nad jeziorem na ścieżce przyrodniczo-leśnej „Nad Bukówką”.
+              Nadleśnictwo Trzcianka. Wejdź na kładkę i idź dalej strzałkami.
+            </p>
+          </div>
+        </article>
+
+        <article class="plate" data-tour="tablica">
+          <div class="plate__img plate__img--walk">
+            <iframe
+              title="Tablica Grzyby, ścieżka Do wieży"
+              src="https://www.google.com/maps/embed?pb=!4v1786982000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0b1BBbkFF!2m2!1d51.9233256!2d15.4781152!3f336.01!4f2.11!5f0.537"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <div class="plate__txt">
+            <span>02</span>
+            <h3>Czytelna tablica.</h3>
+            <p>
+              Tablica na ścieżce „Do wieży”. Zdjęcie sferyczne montuję,
+              a samą tablicę fotografuję osobnym ujęciem —
+              żeby napis był ostry i miał możliwie najwyższą jakość.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="booking" id="booking">
+        <p class="booking__kicker">03 — Rezerwacja</p>
+        <h2>Wybierz termin.</h2>
+        <p class="booking__lead">
+          Usługa i wolny dzień — bez telefonu. Potwierdzenie przyjdzie na e-mail.
+        </p>
+        <iframe
+          class="booking__frame"
+          src="https://lokalnie.app/embed/stanowskipl"
+          title="Rezerwacja terminu"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+
+      <section class="colophon" id="colophon">
+        <p>04 — Kontakt</p>
+        <h2>Dane uzupełnimy.</h2>
+        <p class="colophon__lead">
+          Dla nadleśnictwa, szkoły, gminy, szlaku.
+          Dostajesz gotowy spacer i link — na stronę, do lekcji, do folderu.
+          Kadr ma być wierny miejscu.
+        </p>
+        <dl>
+          <div>
+            <dt>E-mail</dt>
+            <dd data-void>do uzupełnienia</dd>
+          </div>
+          <div>
+            <dt>Telefon</dt>
+            <dd data-void>do uzupełnienia</dd>
+          </div>
+        </dl>
+        <footer>
+          <img src="assets/logo-skanowski.png" alt="" />
+          <p>
+            © <span id="year"></span> Skanowski · skanowski.pl
+            · spacery publikowane w Google Street View
+          </p>
+        </footer>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

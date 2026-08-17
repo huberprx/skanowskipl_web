@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" fill="none" aria-hidden="true">
+  <g class="pegman-body">
+    <circle class="pegman-head" cx="60" cy="28" r="20" fill="#FFC107"/>
+    <g class="pegman-legs">
+      <rect class="pegman-leg pegman-leg--l" x="42" y="86" width="14" height="52" rx="7" fill="#FFC107"/>
+      <rect class="pegman-leg pegman-leg--r" x="64" y="86" width="14" height="52" rx="7" fill="#F5B400"/>
+    </g>
+    <path d="M38 52c0-6 10-12 22-12s22 6 22 12v40c0 8-10 14-22 14s-22-6-22-14V52z" fill="#FFC107"/>
+    <g class="pegman-map">
+      <path d="M28 58h16l6 28H34l-6-28z" fill="#E8E6E1"/>
+      <path d="M44 58h16l-2 28H48l-4-28z" fill="#F4F2EC"/>
+      <path d="M60 58h16l6 28H64l-4-28z" fill="#E8E6E1"/>
+      <path d="M76 58h16l-6 28H70l6-28z" fill="#F4F2EC"/>
+      <path d="M32 68h56M34 78h52" stroke="#FFC107" stroke-width="1.2" opacity=".7"/>
+      <path d="M40 62v20M52 62v20M68 62v20M80 62v20" stroke="#FFC107" stroke-width="1" opacity=".45"/>
+    </g>
+    <circle class="pegman-hand" cx="28" cy="72" r="7" fill="#FFC107"/>
+    <circle class="pegman-hand" cx="92" cy="72" r="7" fill="#FFC107"/>
+  </g>
+</svg>

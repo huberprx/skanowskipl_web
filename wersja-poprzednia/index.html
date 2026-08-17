@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skanowski — wirtualne spacery na Mapach Google</title>
+    <meta
+      name="description"
+      content="Wirtualne spacery 360° na Mapach Google. Ścieżki dydaktyczne — wchodzisz w kadr, zanim ruszysz w teren."
+    />
+    <meta name="theme-color" content="#030303" />
+    <link rel="icon" href="assets/logo-skanowski.png" type="image/png" />
+    <link rel="canonical" href="https://skanowski.pl/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><i></i></div>
+
+    <div class="loader" id="loader">
+      <img src="assets/logo-skanowski.png" alt="" />
+      <em>Skanowski</em>
+    </div>
+
+    <header class="top">
+      <a class="top__logo" href="#film" aria-label="Skanowski">
+        <img src="assets/logo-skanowski.png" alt="" />
+      </a>
+      <p class="top__mark">Street View · 360°</p>
+      <a class="top__cta" href="#kontakt">Kontakt</a>
+    </header>
+
+    <div
+      class="pegman"
+      id="pegman"
+      role="button"
+      tabindex="0"
+      aria-label="Przeciągnij ludzika na ścieżkę"
+    >
+      <span class="pegman__tip">upuść mnie na kadr</span>
+      <div class="pegman__body">
+        <svg viewBox="0 0 120 160" fill="none" aria-hidden="true">
+          <circle cx="60" cy="28" r="20" fill="#FFC107" />
+          <rect class="pegman-leg pegman-leg--l" x="42" y="86" width="14" height="52" rx="7" fill="#FFC107" />
+          <rect class="pegman-leg pegman-leg--r" x="64" y="86" width="14" height="52" rx="7" fill="#F5B400" />
+          <path d="M38 52c0-6 10-12 22-12s22 6 22 12v40c0 8-10 14-22 14s-22-6-22-14V52z" fill="#FFC107" />
+          <path d="M28 58h16l6 28H34l-6-28z" fill="#E8E6E1" />
+          <path d="M44 58h16l-2 28H48l-4-28z" fill="#F4F2EC" />
+          <path d="M60 58h16l6 28H64l-4-28z" fill="#E8E6E1" />
+          <path d="M76 58h16l-6 28H70l6-28z" fill="#F4F2EC" />
+          <circle cx="28" cy="72" r="7" fill="#FFC107" />
+          <circle cx="92" cy="72" r="7" fill="#FFC107" />
+        </svg>
+      </div>
+      <i class="pegman__ring"></i>
+    </div>
+
+    <main id="film">
+      <section class="track" id="track">
+        <div class="stage" id="stage">
+          <canvas id="world" data-drop="current"></canvas>
+
+          <h1 class="wordmark" id="wordmark">
+            Skanowski
+          </h1>
+
+          <p class="lede" id="lede">
+            Wchodzisz w ścieżkę.<br />Nie w stronę.
+          </p>
+
+          <p class="run" id="run">
+            scroll to run <em>the path</em>
+          </p>
+
+          <aside class="hud hud--l" id="hud-l">
+            <p class="hud__k">Klasy · kadry</p>
+            <div class="classes" id="classes"></div>
+          </aside>
+
+          <aside class="hud hud--r" id="hud-r">
+            <p class="hud__k" id="hud-kicker">01 / 03</p>
+            <h2 id="hud-title">Jesienny szlak</h2>
+            <p class="hud__place" id="hud-place"></p>
+            <p class="hud__copy" id="hud-copy"></p>
+            <div class="hud__meta">
+              <div><span>Format</span><b>Photosphere</b></div>
+              <div><span>Mapa</span><b>Street View</b></div>
+              <div><span>Teren</span><b>Lasy PL</b></div>
+            </div>
+            <a class="hud__maps" id="hud-maps" target="_blank" rel="noopener">
+              Otwórz w Mapach Google
+            </a>
+          </aside>
+
+          <div class="hud hud--b" id="hud-b">
+            <span>przeciągnij, aby się rozglądać</span>
+            <span>ludzik · upuść na kadr</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="end" id="kontakt">
+        <p class="end__k">Skanowski</p>
+        <h2>Dane uzupełnimy.<br /><em>Ścieżka już jest.</em></h2>
+        <dl>
+          <div>
+            <dt>E-mail</dt>
+            <dd data-empty>do uzupełnienia</dd>
+          </div>
+          <div>
+            <dt>Telefon</dt>
+            <dd data-empty>do uzupełnienia</dd>
+          </div>
+          <div>
+            <dt>Teren</dt>
+            <dd>Zielona Góra · Puszcza Notecka</dd>
+          </div>
+        </dl>
+        <p class="end__legal">
+          Spacery publikowane na Mapach Google. Pełny Street View otwieraj w Google.
+          Lasy Państwowe / Nadleśnictwo Zielona Góra — oznaczenia ich właścicieli.
+          © <span id="year"></span> skanowski.pl
+        </p>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="js/tours.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/pegman.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
