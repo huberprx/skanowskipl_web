@@ -2,9 +2,6 @@
   const tours = [
     {
       id: "zielona",
-      no: "01",
-      title: "Leśna ścieżka",
-      place: "Nadleśnictwo Zielona Góra",
       geo: "51.9217° N  15.4712° E",
       maps: "https://maps.app.goo.gl/nxefdYR7dACwcZRd8",
       heading: 137.82,
@@ -74,8 +71,42 @@
       const id = (link.getAttribute("href") || "").slice(1);
       if (!id) return;
       e.preventDefault();
+      closeMenu();
       scrollToId(id);
     });
+  });
+
+  const bar = document.querySelector(".bar");
+  const menuBtn = document.querySelector(".bar__menu");
+
+  function closeMenu() {
+    if (!bar || !menuBtn) return;
+    bar.classList.remove("is-open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", "Otwórz menu");
+  }
+
+  function toggleMenu() {
+    if (!bar || !menuBtn) return;
+    const open = !bar.classList.contains("is-open");
+    bar.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    menuBtn.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 800) closeMenu();
   });
 
   const cursor = document.querySelector(".cursor");
@@ -104,9 +135,6 @@
   }
 
   function show(tour) {
-    document.getElementById("cap-no").textContent = tour.no;
-    document.getElementById("cap-title").textContent = tour.title;
-    document.getElementById("cap-place").textContent = tour.place;
     document.getElementById("cap-geo").textContent = tour.geo;
     document.getElementById("cap-maps").href = tour.maps;
     pano.src = walkUrl(tour);

@@ -19,6 +19,7 @@
 html {
   background: #0b0e0c;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 html.lenis {
@@ -180,7 +181,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 40;
+  z-index: 60;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -203,6 +204,10 @@ button {
 
 .bar__brand img {
   width: 28px;
+}
+
+.bar__menu {
+  display: none;
 }
 
 .bar nav {
@@ -453,32 +458,6 @@ button {
   margin-top: 22px;
 }
 
-.instrument__caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 22px 2px 0;
-  border-top: 1px solid rgba(232, 223, 208, 0.12);
-  margin-top: 22px;
-}
-
-.instrument__caption span {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--gold);
-}
-
-.instrument__caption h3 {
-  font-family: var(--serif);
-  font-size: 32px;
-  font-weight: 500;
-  margin: 4px 0 6px;
-}
-
-.instrument__caption #cap-place {
-  color: var(--mute);
-}
-
 .instrument__data,
 .walk-data {
   display: flex;
@@ -601,7 +580,14 @@ button {
 }
 
 .booking {
-  padding: 120px 28px 80px;
+  padding: 120px 0 80px;
+}
+
+.booking__kicker,
+.booking h2,
+.booking__lead {
+  margin-left: 28px;
+  margin-right: 28px;
 }
 
 .booking__lead {
@@ -615,7 +601,6 @@ button {
   min-height: 720px;
   margin-top: 40px;
   border: 0;
-  border-radius: 12px;
   background: transparent;
   opacity: 0.8;
 }
@@ -683,18 +668,106 @@ button {
 }
 
 @media (max-width: 800px) {
-  .spine,
-  .bar nav {
+  .spine {
     display: none;
+  }
+
+  .bar {
+    padding: 6px 10px 6px 12px;
+    min-height: 44px;
+  }
+
+  .bar__brand {
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .bar__brand img {
+    width: 22px;
+  }
+
+  .bar__menu {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .bar__menu span,
+  .bar__menu span::before,
+  .bar__menu span::after {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .bar__menu span {
+    position: relative;
+  }
+
+  .bar__menu span::before,
+  .bar__menu span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .bar__menu span::before {
+    top: -6px;
+  }
+
+  .bar__menu span::after {
+    top: 6px;
+  }
+
+  .bar.is-open .bar__menu span {
+    background: transparent;
+  }
+
+  .bar.is-open .bar__menu span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .bar.is-open .bar__menu span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .bar nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 16px 14px;
+    background: rgba(11, 14, 12, 0.94);
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    border-bottom: 1px solid rgba(232, 223, 208, 0.1);
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .bar.is-open nav {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .bar nav a {
+    padding: 14px 2px;
+    border-bottom: 1px solid rgba(232, 223, 208, 0.08);
   }
 
   .figure {
     right: 12px;
     width: 44px;
-  }
-
-  .instrument__caption {
-    flex-direction: column;
   }
 
   .instrument__data,
