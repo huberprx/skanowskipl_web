@@ -87,33 +87,34 @@
       </section>
 
       <section class="survey" id="survey">
-        <header class="survey__head">
-          <p>02 — Spacer</p>
-          <h2>Tak wygląda spacer.</h2>
-          <p class="survey__lead">
-            Jesienna droga, Nadleśnictwo Zielona Góra.
-            Ten sam las, który potem otworzysz w Mapach —
-            tu możesz iść pierwszy raz.
-          </p>
-        </header>
-
-        <div class="instrument">
-          <div class="instrument__frame">
-            <iframe
-              id="pano"
-              title="Wirtualny spacer na Mapach Google"
-              src="https://www.google.com/maps/embed?pb=!4v1787051533214!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDNvci1GM3dF!2m2!1d51.92160707270759!2d15.47086086317654!3f142.94173095129278!4f15.322415445876473!5f0.788825404718735"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
-            <div class="instrument__mask"></div>
-            <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
+        <div class="survey__stage">
+          <div class="instrument">
+            <div class="instrument__frame">
+              <iframe
+                id="pano"
+                title="Wirtualny spacer na Mapach Google"
+                src="https://www.google.com/maps/embed?pb=!4v1787051533214!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDNvci1GM3dF!2m2!1d51.92160707270759!2d15.47086086317654!3f142.94173095129278!4f15.322415445876473!5f0.788825404718735"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <div class="instrument__mask"></div>
+              <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
+            </div>
+            <div class="walk-data">
+              <p id="cap-geo">51.9216° N  15.4709° E</p>
+              <a id="cap-maps" href="https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA" target="_blank" rel="noopener">Mapy Google ↗</a>
+            </div>
           </div>
-          <div class="walk-data">
-            <p id="cap-geo">51.9216° N  15.4709° E</p>
-            <a id="cap-maps" href="https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA" target="_blank" rel="noopener">Mapy Google ↗</a>
-          </div>
+          <header class="survey__head">
+            <p>02 — Spacer</p>
+            <h2>Tak wygląda spacer.</h2>
+            <p class="survey__lead">
+              Jesienna droga, Nadleśnictwo Zielona Góra.
+              Ten sam las, który potem otworzysz w Mapach —
+              tu możesz iść pierwszy raz.
+            </p>
+          </header>
         </div>
       </section>
 
@@ -240,6 +241,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="js/main.js?v=nav"></script>
+    <script src="js/main.js?v=peg"></script>
   </body>
 </html>

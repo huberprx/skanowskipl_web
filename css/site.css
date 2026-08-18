@@ -235,6 +235,8 @@ button {
   background: none;
   touch-action: none;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
   cursor: grab;
 }
 
@@ -251,6 +253,8 @@ button {
 .figure svg {
   width: 100%;
   overflow: visible;
+  pointer-events: none;
+  -webkit-user-drag: none;
   filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.4));
 }
 
@@ -279,7 +283,8 @@ button {
 .hero {
   position: relative;
   display: grid;
-  height: auto;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: transparent;
 }
@@ -293,29 +298,17 @@ button {
 }
 
 .hero__still {
-  line-height: 0;
+  min-height: 0;
+  height: 100%;
 }
 
 .hero__still img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
   transform: none;
   display: block;
-}
-
-@media (min-width: 1100px) {
-  .hero__still {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero__still img {
-    width: auto;
-    max-width: 100%;
-    max-height: 62vh;
-  }
 }
 
 .hero__shade {
@@ -331,9 +324,9 @@ button {
 }
 
 .hero__copy {
-  align-self: start;
+  align-self: end;
   z-index: 2;
-  padding: 88px 80px 20px 28px;
+  padding: 0 80px 48px 28px;
 }
 
 .sr-only {
@@ -350,11 +343,14 @@ button {
 
 .hero__sub {
   margin: 0;
+  padding: 0;
   font-family: var(--serif);
   font-style: italic;
   font-size: clamp(18px, 2.4vw, 28px);
-  color: rgba(232, 223, 208, 0.78);
-  max-width: 28ch;
+  line-height: 1.35;
+  color: rgba(232, 223, 208, 0.96);
+  max-width: 38ch;
+  text-shadow: 0 1px 10px rgba(11, 14, 12, 0.55);
 }
 
 .note {
@@ -391,6 +387,11 @@ button {
 
 .survey {
   padding: 120px 28px 80px;
+}
+
+.survey__stage {
+  display: grid;
+  gap: 28px;
 }
 
 .survey__head > p:first-of-type,
@@ -435,8 +436,12 @@ button {
   margin-top: 20px;
 }
 
+.survey__head h2 {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
 .instrument {
-  margin-top: 56px;
+  min-width: 0;
 }
 
 .instrument__frame {
@@ -570,7 +575,8 @@ button {
 }
 
 @media (max-width: 979px) {
-  .plate__txt {
+  .plate__txt,
+  .survey__head {
     order: -1;
   }
 }
@@ -588,6 +594,12 @@ button {
 
   .plate--flip .plate__media {
     order: 2;
+  }
+
+  .survey__stage {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: center;
+    gap: 56px;
   }
 }
 
@@ -748,7 +760,12 @@ button {
   }
 
   .hero__copy {
-    padding: 56px 28px 16px 12px;
+    padding: 0 56px 28px 16px;
+  }
+
+  .hero__sub {
+    font-size: 15px;
+    max-width: 34ch;
   }
 
   .bar__brand {

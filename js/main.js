@@ -175,6 +175,7 @@
   const heroPhoto = document.querySelector(".hero__still img");
   let dragging = false;
   let dragOffset = 0;
+  let dragPointer = null;
 
   function pageMax() {
     if (lenis && typeof lenis.limit === "number" && lenis.limit > 0) {
@@ -192,12 +193,14 @@
     const figH = figure.offsetHeight || 85;
     const barH = (document.querySelector(".bar") || {}).offsetHeight || 44;
     const floor = 8;
-    let start = barH;
+    const maxY = innerHeight - figH - floor;
+    const minTrack = Math.max(180, innerHeight * 0.45);
+    let start = barH + 8;
     if (heroPhoto) {
       const heroBottom = heroPhoto.getBoundingClientRect().bottom + pageY();
       start = heroBottom - figH;
     }
-    return Math.max(barH, Math.min(start, innerHeight - figH - floor));
+    return Math.max(barH + 8, Math.min(start, maxY - minTrack));
   }
 
   function figMax() {
@@ -210,7 +213,11 @@
 
   function jumpTo(y) {
     const next = Math.max(0, Math.min(pageMax(), y));
+    const html = document.documentElement;
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
     window.scrollTo(0, next);
+    html.style.scrollBehavior = prev;
     if (lenis) lenis.scrollTo(next, { immediate: true, force: true });
   }
 
@@ -250,40 +257,36 @@
     e.preventDefault();
   });
 
-  figure.addEventListener("mousedown", function (e) {
-    if (e.button !== 0) return;
+  figure.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     e.preventDefault();
+    dragPointer = e.pointerId;
+    try {
+      figure.setPointerCapture(e.pointerId);
+    } catch (err) {}
     startDrag(e.clientY);
   });
 
-  figure.addEventListener(
-    "touchstart",
-    function (e) {
-      if (!e.touches[0]) return;
-      e.preventDefault();
-      startDrag(e.touches[0].clientY);
-    },
-    { passive: false }
-  );
-
-  window.addEventListener("mousemove", function (e) {
-    if (!dragging) return;
+  figure.addEventListener("pointermove", function (e) {
+    if (!dragging || e.pointerId !== dragPointer) return;
+    e.preventDefault();
     moveToClientY(e.clientY);
   });
 
-  window.addEventListener(
-    "touchmove",
-    function (e) {
-      if (!dragging || !e.touches[0]) return;
-      e.preventDefault();
-      moveToClientY(e.touches[0].clientY);
-    },
-    { passive: false }
-  );
+  function endPointer(e) {
+    if (e.pointerId !== dragPointer) return;
+    dragPointer = null;
+    try {
+      figure.releasePointerCapture(e.pointerId);
+    } catch (err) {}
+    stopDrag();
+  }
 
-  window.addEventListener("mouseup", stopDrag);
-  window.addEventListener("touchend", stopDrag);
-  window.addEventListener("touchcancel", stopDrag);
+  figure.addEventListener("pointerup", endPointer);
+  figure.addEventListener("pointercancel", endPointer);
+  figure.addEventListener("lostpointercapture", function () {
+    if (dragging) stopDrag();
+  });
 
   window.addEventListener("scroll", parkFigure, { passive: true });
   window.addEventListener("resize", parkFigure);
