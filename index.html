@@ -37,8 +37,6 @@
         <span aria-hidden="true"></span>
       </button>
       <nav id="site-nav">
-        <a href="#survey">Spacer</a>
-        <a href="#plates">Przystanki</a>
         <a href="#booking">Rezerwacja</a>
         <a href="#colophon">Kontakt</a>
       </nav>
@@ -91,11 +89,11 @@
       <section class="survey" id="survey">
         <header class="survey__head">
           <p>02 — Spacer</p>
-          <h2>Wejdź w ścieżkę</h2>
+          <h2>Tak wygląda spacer.</h2>
           <p class="survey__lead">
-            To ten sam wirtualny spacer co na Mapach Google — leśna droga
-            jesienią, Nadleśnictwo Zielona Góra. Rozglądaj się i idź dalej
-            strzałkami.
+            Jesienna droga, Nadleśnictwo Zielona Góra.
+            Ten sam las, który potem otworzysz w Mapach —
+            tu możesz iść pierwszy raz.
           </p>
         </header>
 
@@ -104,23 +102,18 @@
             <iframe
               id="pano"
               title="Wirtualny spacer na Mapach Google"
+              src="https://www.google.com/maps/embed?pb=!4v1787051533214!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDNvci1GM3dF!2m2!1d51.92160707270759!2d15.47086086317654!3f142.94173095129278!4f15.322415445876473!5f0.788825404718735"
               allowfullscreen
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerpolicy="strict-origin-when-cross-origin"
             ></iframe>
             <div class="instrument__mask"></div>
             <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
           </div>
           <div class="walk-data">
-            <p id="cap-geo">51.9217° N  15.4712° E</p>
-            <a id="cap-maps" href="https://maps.app.goo.gl/nxefdYR7dACwcZRd8" target="_blank" rel="noopener">Mapy Google ↗</a>
+            <p id="cap-geo">51.9216° N  15.4709° E</p>
+            <a id="cap-maps" href="https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA" target="_blank" rel="noopener">Mapy Google ↗</a>
           </div>
-          <p class="instrument__note">
-            Uczeń, turysta albo leśnik przechodzi trasę z domu,
-            w Mapach, które już zna, i planuje tę prawdziwą.
-            Nie stawiam serwera, nie buduję aplikacji, nie biorę abonamentu.
-            Płacisz za wykonanie. Spacer zostaje.
-          </p>
         </div>
       </section>
 
@@ -156,15 +149,15 @@
             <div class="plate__img plate__img--walk">
               <iframe
                 title="Tablica Grzyby, ścieżka Do wieży"
-                src="https://www.google.com/maps/embed?pb=!4v1786982000000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0b1BBbkFF!2m2!1d51.9233256!2d15.4781152!3f336.01!4f2.11!5f0.537"
+                src="https://www.google.com/maps/embed?pb=!4v1786982600000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0c1g1amdF!2m2!1d51.9235221!2d15.482572!3f6.99!4f6.21!5f0.4"
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
             <div class="walk-data">
-              <p>51.9233° N  15.4781° E</p>
-              <a href="https://maps.app.goo.gl/sQiz5ryr6LVRKrGZ8" target="_blank" rel="noopener">Mapy Google ↗</a>
+              <p>51.9235° N  15.4826° E</p>
+              <a href="https://maps.app.goo.gl/fEm1wThipjGnqG4L8" target="_blank" rel="noopener">Mapy Google ↗</a>
             </div>
           </div>
           <div class="plate__txt">
@@ -198,20 +191,41 @@
 
       <section class="colophon" id="colophon">
         <p>04 — Kontakt</p>
-        <h2>Dane uzupełnimy.</h2>
-        <p class="colophon__lead">
-          Dla nadleśnictwa, szkoły, gminy, szlaku.
-          Dostajesz gotowy spacer i link — na stronę, do lekcji, do folderu.
-          Kadr ma być wierny miejscu.
-        </p>
+        <h2>Napisz lub zadzwoń.</h2>
         <dl>
           <div>
             <dt>E-mail</dt>
-            <dd data-void>do uzupełnienia</dd>
+            <dd>
+              <button class="reveal" type="button" aria-expanded="false">
+                <svg class="reveal__closed" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M2 10c4.5 5.5 9.5 8 14 8s9.5-2.5 14-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M7 13.5 5 17M12 15.2l-.6 3.2M16 16v3.4M20 15.2l.6 3.2M25 13.5 27 17" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                </svg>
+                <svg class="reveal__open" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M2 10c4.5-6 9.5-8 14-8s9.5 2 14 8c-4.5 6-9.5 8-14 8S6.5 16 2 10z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="16" cy="10" r="3.2" fill="currentColor" />
+                </svg>
+                <span class="reveal__hint">Kliknij, by zobaczyć</span>
+              </button>
+              <a class="reveal__val" href="mailto:skanowski.pl@gmail.com">skanowski.pl@gmail.com</a>
+            </dd>
           </div>
           <div>
             <dt>Telefon</dt>
-            <dd data-void>do uzupełnienia</dd>
+            <dd>
+              <button class="reveal" type="button" aria-expanded="false">
+                <svg class="reveal__closed" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M2 10c4.5 5.5 9.5 8 14 8s9.5-2.5 14-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M7 13.5 5 17M12 15.2l-.6 3.2M16 16v3.4M20 15.2l.6 3.2M25 13.5 27 17" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                </svg>
+                <svg class="reveal__open" viewBox="0 0 32 20" aria-hidden="true">
+                  <path d="M2 10c4.5-6 9.5-8 14-8s9.5 2 14 8c-4.5 6-9.5 8-14 8S6.5 16 2 10z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="16" cy="10" r="3.2" fill="currentColor" />
+                </svg>
+                <span class="reveal__hint">Kliknij, by zobaczyć</span>
+              </button>
+              <a class="reveal__val" href="tel:+48882567861">+48 882 567 861</a>
+            </dd>
           </div>
         </dl>
         <footer>
@@ -227,6 +241,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=nav"></script>
   </body>
 </html>

@@ -2,12 +2,14 @@
   const tours = [
     {
       id: "zielona",
-      geo: "51.9217° N  15.4712° E",
-      maps: "https://maps.app.goo.gl/nxefdYR7dACwcZRd8",
-      heading: 137.82,
-      lat: 51.9216693,
-      lng: 15.4712135,
-      panoId: "CIHM0ogKEICAgID3or-Icg",
+      geo: "51.9216° N  15.4709° E",
+      maps: "https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA",
+      heading: 142.94,
+      lat: 51.9216071,
+      lng: 15.4708609,
+      panoId: "CIHM0ogKEICAgID3or-F3wE",
+      embed:
+        "https://www.google.com/maps/embed?pb=!4v1787051533214!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDNvci1GM3dF!2m2!1d51.92160707270759!2d15.47086086317654!3f142.94173095129278!4f15.322415445876473!5f0.788825404718735",
     },
   ];
 
@@ -53,14 +55,24 @@
 
   function scrollToEl(el) {
     if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: -88, duration: 1.2 });
-    else el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    const top =
+      el.getBoundingClientRect().top +
+      (window.scrollY || document.documentElement.scrollTop || 0) -
+      88;
+    if (lenis) {
+      if (typeof lenis.start === "function") lenis.start();
+      lenis.scrollTo(top, { duration: reduceMotion ? 0 : 1.2, force: true });
+    } else {
+      el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    }
   }
 
   function scrollToId(id) {
     if (id === "top") {
-      if (lenis) lenis.scrollTo(0, { duration: 1.2 });
-      else window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      if (lenis) {
+        if (typeof lenis.start === "function") lenis.start();
+        lenis.scrollTo(0, { duration: reduceMotion ? 0 : 1.2, force: true });
+      } else window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
     scrollToEl(document.getElementById(id));
@@ -160,7 +172,7 @@
   });
 
   const figure = document.getElementById("figure");
-  const figTopMin = 88;
+  const heroPhoto = document.querySelector(".hero__still img");
   let dragging = false;
   let dragOffset = 0;
 
@@ -171,8 +183,21 @@
     return Math.max(document.documentElement.scrollHeight - innerHeight, 1);
   }
 
+  function pageY() {
+    if (lenis && typeof lenis.scroll === "number") return lenis.scroll;
+    return window.scrollY || document.documentElement.scrollTop || 0;
+  }
+
   function figMin() {
-    return figTopMin;
+    const figH = figure.offsetHeight || 85;
+    const barH = (document.querySelector(".bar") || {}).offsetHeight || 44;
+    const floor = 8;
+    let start = barH;
+    if (heroPhoto) {
+      const heroBottom = heroPhoto.getBoundingClientRect().bottom + pageY();
+      start = heroBottom - figH;
+    }
+    return Math.max(barH, Math.min(start, innerHeight - figH - floor));
   }
 
   function figMax() {
@@ -181,11 +206,6 @@
 
   function figRange() {
     return Math.max(figMax() - figMin(), 1);
-  }
-
-  function pageY() {
-    if (lenis && typeof lenis.scroll === "number") return lenis.scroll;
-    return window.scrollY || document.documentElement.scrollTop || 0;
   }
 
   function jumpTo(y) {
@@ -268,6 +288,10 @@
   window.addEventListener("scroll", parkFigure, { passive: true });
   window.addEventListener("resize", parkFigure);
   if (lenis) lenis.on("scroll", parkFigure);
+  if (heroPhoto) {
+    if (heroPhoto.complete) parkFigure();
+    else heroPhoto.addEventListener("load", parkFigure);
+  }
   parkFigure();
 
   if (cursor) {
@@ -300,6 +324,16 @@
       scrollTrigger: { trigger: ".note", start: "top 75%" },
     });
   }
+
+  document.querySelectorAll(".reveal").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const dd = btn.closest("dd");
+      if (!dd) return;
+      const open = !dd.classList.contains("is-open");
+      dd.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
 })();
 
 
