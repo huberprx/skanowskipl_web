@@ -91,11 +91,17 @@
   const bar = document.querySelector(".bar");
   const menuBtn = document.querySelector(".bar__menu");
 
+  function menuLabel(open) {
+    const i18n = window.SkanowskiI18n;
+    if (!i18n) return open ? "Zamknij menu" : "Otwórz menu";
+    return i18n.t(open ? "nav.menuClose" : "nav.menuOpen");
+  }
+
   function closeMenu() {
     if (!bar || !menuBtn) return;
     bar.classList.remove("is-open");
     menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Otwórz menu");
+    menuBtn.setAttribute("aria-label", menuLabel(false));
   }
 
   function toggleMenu() {
@@ -103,7 +109,20 @@
     const open = !bar.classList.contains("is-open");
     bar.classList.toggle("is-open", open);
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    menuBtn.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+    menuBtn.setAttribute("aria-label", menuLabel(open));
+    if (open && window.SkanowskiI18n && window.SkanowskiI18n.closePicker) {
+      window.SkanowskiI18n.closePicker();
+    }
+  }
+
+  if (window.SkanowskiI18n) {
+    window.SkanowskiI18n.onChange(function () {
+      if (!bar || !menuBtn) return;
+      menuBtn.setAttribute(
+        "aria-label",
+        menuLabel(bar.classList.contains("is-open"))
+      );
+    });
   }
 
   if (menuBtn) {

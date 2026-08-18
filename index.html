@@ -8,6 +8,22 @@
       name="description"
       content="Wirtualne spacery 360°. Ścieżki dydaktyczne na Mapach Google. Skanowski."
     />
+    <link rel="alternate" hreflang="pl" href="https://skanowski.pl/?lang=pl" />
+    <link rel="alternate" hreflang="en" href="https://skanowski.pl/?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://skanowski.pl/?lang=de" />
+    <link rel="alternate" hreflang="cs" href="https://skanowski.pl/?lang=cs" />
+    <link rel="alternate" hreflang="sk" href="https://skanowski.pl/?lang=sk" />
+    <link rel="alternate" hreflang="hu" href="https://skanowski.pl/?lang=hu" />
+    <link rel="alternate" hreflang="sv" href="https://skanowski.pl/?lang=sv" />
+    <link rel="alternate" hreflang="no" href="https://skanowski.pl/?lang=no" />
+    <link rel="alternate" hreflang="da" href="https://skanowski.pl/?lang=da" />
+    <link rel="alternate" hreflang="fr" href="https://skanowski.pl/?lang=fr" />
+    <link rel="alternate" hreflang="es" href="https://skanowski.pl/?lang=es" />
+    <link rel="alternate" hreflang="pt" href="https://skanowski.pl/?lang=pt" />
+    <link rel="alternate" hreflang="it" href="https://skanowski.pl/?lang=it" />
+    <link rel="alternate" hreflang="el" href="https://skanowski.pl/?lang=el" />
+    <link rel="alternate" hreflang="tr" href="https://skanowski.pl/?lang=tr" />
+    <link rel="alternate" hreflang="x-default" href="https://skanowski.pl/" />
     <meta name="theme-color" content="#0b0e0c" />
     <link rel="icon" href="assets/logo-skanowski.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,16 +49,36 @@
         <img src="assets/logo-skanowski.png" alt="" />
         <span>Skanowski</span>
       </a>
-      <button class="bar__menu" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="site-nav">
-        <span aria-hidden="true"></span>
-      </button>
-      <nav id="site-nav">
-        <a href="#booking">Rezerwacja</a>
-        <a href="#colophon">Kontakt</a>
-      </nav>
+      <div class="bar__end">
+        <div class="langs">
+          <button
+            type="button"
+            class="langs__btn"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="lang-list"
+            data-i18n-aria="nav.lang"
+            aria-label="Język"
+          >
+            <svg class="langs__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <path d="M3 12h18M12 3c2.6 3 4 6 4 9s-1.4 6-4 9c-2.6-3-4-6-4-9s1.4-6 4-9z" fill="none" stroke="currentColor" stroke-width="1.4" />
+            </svg>
+            <span class="langs__code">PL</span>
+          </button>
+          <ul class="langs__list" id="lang-list" role="listbox" hidden></ul>
+        </div>
+        <button class="bar__menu" type="button" data-i18n-aria="nav.menuOpen" aria-label="Otwórz menu" aria-expanded="false" aria-controls="site-nav">
+          <span aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav">
+          <a href="#booking" data-i18n="nav.booking">Rezerwacja</a>
+          <a href="#colophon" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+      </div>
     </header>
 
-    <button class="figure" id="figure" type="button" draggable="false" aria-label="Przewodnik ścieżki — przeciągnij, aby przewinąć stronę">
+    <button class="figure" id="figure" type="button" draggable="false" data-i18n-aria="figure.aria" aria-label="Przewodnik ścieżki — przeciągnij, aby przewinąć stronę">
       <svg viewBox="0 0 80 120" fill="none" aria-hidden="true">
         <circle cx="40" cy="18" r="13" fill="#E7B63A" />
         <rect class="leg l" x="28" y="62" width="9" height="40" rx="4.5" fill="#E7B63A" />
@@ -61,17 +97,17 @@
       <section class="hero">
         <h1 class="sr-only">Skanowski</h1>
         <div class="hero__still">
-          <img src="assets/hero.jpg" alt="Jesienna droga i drzewo" />
+          <img src="assets/hero.jpg" alt="Jesienna droga i drzewo" data-i18n-alt="hero.alt" />
         </div>
         <div class="hero__shade"></div>
         <div class="hero__copy">
-          <p class="hero__sub">Wirtualne spacery ścieżek dydaktycznych, obiektów turystycznych i natury — na Mapach Google.</p>
+          <p class="hero__sub" data-i18n="hero.sub">Wirtualne spacery ścieżek dydaktycznych, obiektów turystycznych i natury — na Mapach Google.</p>
         </div>
       </section>
 
       <section class="practice">
-        <p class="practice__kicker">01 — Główna korzyść</p>
-        <h2>
+        <p class="practice__kicker" data-i18n="practice.kicker">01 — Główna korzyść</p>
+        <h2 data-i18n-html="practice.title">
           Wirtualne spacery na Mapach Google.<br />
           Raz zrobione — zostają na zawsze.<br />
           <em>Bez dodatkowych kosztów.</em>
@@ -79,7 +115,7 @@
       </section>
 
       <section class="note">
-        <p>
+        <p data-i18n-html="note.body">
           Zanim ruszysz, wiesz już, dokąd idziesz<br />
           i na co się przygotować.<br />
           <em>A gdy się zgubisz — zawsze się odnajdziesz.</em>
@@ -93,23 +129,24 @@
               <iframe
                 id="pano"
                 title="Wirtualny spacer na Mapach Google"
+                data-i18n-title="survey.iframe"
                 src="https://www.google.com/maps/embed?pb=!4v1787051533214!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDNvci1GM3dF!2m2!1d51.92160707270759!2d15.47086086317654!3f142.94173095129278!4f15.322415445876473!5f0.788825404718735"
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
               ></iframe>
               <div class="instrument__mask"></div>
-              <p class="instrument__drag">idź strzałkami · rozglądaj się</p>
+              <p class="instrument__drag" data-i18n="survey.drag">idź strzałkami · rozglądaj się</p>
             </div>
             <div class="walk-data">
               <p id="cap-geo">51.9216° N  15.4709° E</p>
-              <a id="cap-maps" href="https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA" target="_blank" rel="noopener">Mapy Google ↗</a>
+              <a id="cap-maps" href="https://maps.app.goo.gl/9R1YcJJwN2KxwYYcA" target="_blank" rel="noopener" data-i18n="maps.link">Mapy Google ↗</a>
             </div>
           </div>
           <header class="survey__head">
-            <p>02 — Spacer</p>
-            <h2>Tak wygląda spacer.</h2>
-            <p class="survey__lead">
+            <p data-i18n="survey.kicker">02 — Spacer</p>
+            <h2 data-i18n="survey.title">Tak wygląda spacer.</h2>
+            <p class="survey__lead" data-i18n="survey.lead">
               Jesienna droga, Nadleśnictwo Zielona Góra.
               Ten sam las, który potem otworzysz w Mapach —
               tu możesz iść pierwszy raz.
@@ -124,6 +161,7 @@
             <div class="plate__img plate__img--walk">
               <iframe
                 title="Ścieżka Nad Bukówką — wirtualny spacer"
+                data-i18n-title="plate.bukowka.iframe"
                 src="https://www.google.com/maps/embed?pb=!4v1786981345042!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRE9rZV9wUUE.!2m2!1d53.02581296632936!2d16.35970694879955!3f326.88108017618265!4f-1.8031326286198777!5f0.4000000000000002"
                 allowfullscreen
                 loading="lazy"
@@ -132,13 +170,13 @@
             </div>
             <div class="walk-data">
               <p>53.0258° N  16.3597° E</p>
-              <a href="https://maps.app.goo.gl/k4Xvu9pEimKkro5A8" target="_blank" rel="noopener">Mapy Google ↗</a>
+              <a href="https://maps.app.goo.gl/k4Xvu9pEimKkro5A8" target="_blank" rel="noopener" data-i18n="maps.link">Mapy Google ↗</a>
             </div>
           </div>
           <div class="plate__txt">
             <span>01</span>
-            <h3>Nad Bukówką.</h3>
-            <p>
+            <h3 data-i18n="plate.bukowka.title">Nad Bukówką.</h3>
+            <p data-i18n="plate.bukowka.body">
               Pomost nad jeziorem na ścieżce przyrodniczo-leśnej „Nad Bukówką”.
               Nadleśnictwo Trzcianka. Wejdź na kładkę i idź dalej strzałkami.
             </p>
@@ -150,6 +188,7 @@
             <div class="plate__img plate__img--walk">
               <iframe
                 title="Tablica Grzyby, ścieżka Do wieży"
+                data-i18n-title="plate.tablica.iframe"
                 src="https://www.google.com/maps/embed?pb=!4v1786982600000!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDM0c1g1amdF!2m2!1d51.9235221!2d15.482572!3f6.99!4f6.21!5f0.4"
                 allowfullscreen
                 loading="lazy"
@@ -158,13 +197,13 @@
             </div>
             <div class="walk-data">
               <p>51.9235° N  15.4826° E</p>
-              <a href="https://maps.app.goo.gl/fEm1wThipjGnqG4L8" target="_blank" rel="noopener">Mapy Google ↗</a>
+              <a href="https://maps.app.goo.gl/fEm1wThipjGnqG4L8" target="_blank" rel="noopener" data-i18n="maps.link">Mapy Google ↗</a>
             </div>
           </div>
           <div class="plate__txt">
             <span>02</span>
-            <h3>Czytelna tablica.</h3>
-            <p>
+            <h3 data-i18n="plate.tablica.title">Czytelna tablica.</h3>
+            <p data-i18n="plate.tablica.body">
               Tablica na ścieżce „Do wieży”. Zdjęcie sferyczne montuję,
               a samą tablicę fotografuję osobnym ujęciem —
               żeby napis był ostry i miał możliwie najwyższą jakość.
@@ -174,9 +213,9 @@
       </section>
 
       <section class="booking" id="booking">
-        <p class="booking__kicker">03 — Rezerwacja</p>
-        <h2>Zarezerwuj już termin.</h2>
-        <p class="booking__lead">
+        <p class="booking__kicker" data-i18n="booking.kicker">03 — Rezerwacja</p>
+        <h2 data-i18n="booking.title">Zarezerwuj już termin.</h2>
+        <p class="booking__lead" data-i18n="booking.lead">
           Najpiękniejsze zdjęcia wychodzą wczesną wiosną, latem i jesienią.
           Jeśli zależy Ci na aurze zimowej — też jestem otwarty
           i z przyjemnością podejmę się tego wyzwania.
@@ -185,17 +224,18 @@
           class="booking__frame"
           src="https://lokalnie.app/embed/stanowskipl"
           title="Rezerwacja terminu"
+          data-i18n-title="booking.iframe"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
 
       <section class="colophon" id="colophon">
-        <p>04 — Kontakt</p>
-        <h2>Napisz lub zadzwoń.</h2>
+        <p data-i18n="contact.kicker">04 — Kontakt</p>
+        <h2 data-i18n="contact.title">Napisz lub zadzwoń.</h2>
         <dl>
           <div>
-            <dt>E-mail</dt>
+            <dt data-i18n="contact.email">E-mail</dt>
             <dd>
               <button class="reveal" type="button" aria-expanded="false">
                 <svg class="reveal__closed" viewBox="0 0 32 20" aria-hidden="true">
@@ -206,13 +246,13 @@
                   <path d="M2 10c4.5-6 9.5-8 14-8s9.5 2 14 8c-4.5 6-9.5 8-14 8S6.5 16 2 10z" fill="none" stroke="currentColor" stroke-width="1.6" />
                   <circle cx="16" cy="10" r="3.2" fill="currentColor" />
                 </svg>
-                <span class="reveal__hint">Kliknij, by zobaczyć</span>
+                <span class="reveal__hint" data-i18n="contact.reveal">Kliknij, by zobaczyć</span>
               </button>
               <a class="reveal__val" href="mailto:skanowski.pl@gmail.com">skanowski.pl@gmail.com</a>
             </dd>
           </div>
           <div>
-            <dt>Telefon</dt>
+            <dt data-i18n="contact.phone">Telefon</dt>
             <dd>
               <button class="reveal" type="button" aria-expanded="false">
                 <svg class="reveal__closed" viewBox="0 0 32 20" aria-hidden="true">
@@ -223,7 +263,7 @@
                   <path d="M2 10c4.5-6 9.5-8 14-8s9.5 2 14 8c-4.5 6-9.5 8-14 8S6.5 16 2 10z" fill="none" stroke="currentColor" stroke-width="1.6" />
                   <circle cx="16" cy="10" r="3.2" fill="currentColor" />
                 </svg>
-                <span class="reveal__hint">Kliknij, by zobaczyć</span>
+                <span class="reveal__hint" data-i18n="contact.reveal">Kliknij, by zobaczyć</span>
               </button>
               <a class="reveal__val" href="tel:+48882567861">+48 882 567 861</a>
             </dd>
@@ -241,6 +281,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="js/main.js?v=peg"></script>
+    <script src="js/i18n.js?v=geo"></script>
+    <script src="js/main.js?v=i18n"></script>
   </body>
 </html>

@@ -206,11 +206,88 @@ button {
   width: 28px;
 }
 
+.bar__end {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
 .bar__menu {
   display: none;
 }
 
-.bar nav {
+.langs {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.langs__btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  color: rgba(232, 223, 208, 0.82);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.langs.is-open .langs__btn,
+.langs__btn:hover {
+  color: var(--gold);
+}
+
+.langs__icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.langs__list {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 70;
+  min-width: 196px;
+  max-height: min(70vh, 440px);
+  overflow: auto;
+  padding: 8px 0;
+  background: rgba(11, 14, 12, 0.96);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border: 1px solid rgba(232, 223, 208, 0.1);
+}
+
+.langs__list[hidden] {
+  display: none;
+}
+
+.langs__list button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 16px;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: rgba(232, 223, 208, 0.82);
+}
+
+.langs__list button:hover,
+.langs__list button.is-on {
+  color: var(--gold);
+}
+
+.langs__tag {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: rgba(232, 223, 208, 0.38);
+}
+
+#site-nav {
   display: flex;
   gap: 28px;
   font-size: 11px;
@@ -218,11 +295,11 @@ button {
   text-transform: uppercase;
 }
 
-.bar nav a {
+#site-nav a {
   color: rgba(232, 223, 208, 0.92);
 }
 
-.bar nav a:hover {
+#site-nav a:hover {
   color: #fff;
 }
 
@@ -777,13 +854,21 @@ button {
     width: 22px;
   }
 
+  .bar__end {
+    margin-left: auto;
+    gap: 2px;
+  }
+
+  .langs__btn {
+    padding: 8px 8px;
+  }
+
   .bar__menu {
     display: grid;
     place-items: center;
     width: 40px;
     height: 40px;
     flex-shrink: 0;
-    margin-left: auto;
   }
 
   .bar__menu span,
@@ -829,7 +914,7 @@ button {
     transform: rotate(-45deg);
   }
 
-  .bar nav {
+  #site-nav {
     position: absolute;
     top: 100%;
     left: 0;
@@ -846,12 +931,12 @@ button {
     pointer-events: none;
   }
 
-  .bar.is-open nav {
+  .bar.is-open #site-nav {
     visibility: visible;
     pointer-events: auto;
   }
 
-  .bar nav a {
+  #site-nav a {
     padding: 14px 2px;
     border-bottom: 1px solid rgba(232, 223, 208, 0.08);
   }
