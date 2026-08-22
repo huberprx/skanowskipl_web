@@ -263,6 +263,7 @@
       "contact.title": "Napisz lub zadzwoń.",
       "contact.email": "E-mail",
       "contact.phone": "Telefon",
+      "contact.social": "Social",
       "contact.reveal": "Kliknij, by zobaczyć",
     },
     en: {
@@ -307,6 +308,7 @@
       "contact.title": "Write or call.",
       "contact.email": "Email",
       "contact.phone": "Phone",
+      "contact.social": "Social",
       "contact.reveal": "Click to reveal",
     },
     de: {
@@ -351,6 +353,7 @@
       "contact.title": "Schreiben oder anrufen.",
       "contact.email": "E-Mail",
       "contact.phone": "Telefon",
+      "contact.social": "Social",
       "contact.reveal": "Klicken zum Anzeigen",
     },
     es: {
@@ -395,6 +398,7 @@
       "contact.title": "Escribe o llama.",
       "contact.email": "Correo",
       "contact.phone": "Teléfono",
+      "contact.social": "Redes",
       "contact.reveal": "Haz clic para ver",
     },
     fr: {
@@ -440,6 +444,7 @@
       "contact.title": "Écrivez ou appelez.",
       "contact.email": "E-mail",
       "contact.phone": "Téléphone",
+      "contact.social": "Réseaux",
       "contact.reveal": "Cliquez pour afficher",
     },
     sv: {
@@ -484,6 +489,7 @@
       "contact.title": "Skriv eller ring.",
       "contact.email": "E-post",
       "contact.phone": "Telefon",
+      "contact.social": "Socialt",
       "contact.reveal": "Klicka för att visa",
     },
     no: {
@@ -528,6 +534,7 @@
       "contact.title": "Skriv eller ring.",
       "contact.email": "E-post",
       "contact.phone": "Telefon",
+      "contact.social": "Sosialt",
       "contact.reveal": "Klikk for å vise",
     },
     da: {
@@ -572,6 +579,7 @@
       "contact.title": "Skriv eller ring.",
       "contact.email": "E-mail",
       "contact.phone": "Telefon",
+      "contact.social": "Sociale",
       "contact.reveal": "Klik for at vise",
     },
     cs: {
@@ -616,6 +624,7 @@
       "contact.title": "Napište nebo zavolejte.",
       "contact.email": "E-mail",
       "contact.phone": "Telefon",
+      "contact.social": "Sociální sítě",
       "contact.reveal": "Klikněte pro zobrazení",
     },
     sk: {
@@ -660,6 +669,7 @@
       "contact.title": "Napíšte alebo zavolajte.",
       "contact.email": "E-mail",
       "contact.phone": "Telefón",
+      "contact.social": "Sociálne siete",
       "contact.reveal": "Kliknite na zobrazenie",
     },
     hu: {
@@ -704,6 +714,7 @@
       "contact.title": "Írjon vagy hívjon.",
       "contact.email": "E-mail",
       "contact.phone": "Telefon",
+      "contact.social": "Közösségi",
       "contact.reveal": "Kattintson a megjelenítéshez",
     },
     tr: {
@@ -748,6 +759,7 @@
       "contact.title": "Yazın veya arayın.",
       "contact.email": "E-posta",
       "contact.phone": "Telefon",
+      "contact.social": "Sosyal",
       "contact.reveal": "Görmek için tıklayın",
     },
     el: {
@@ -792,6 +804,7 @@
       "contact.title": "Γράψτε ή καλέστε.",
       "contact.email": "E-mail",
       "contact.phone": "Τηλέφωνο",
+      "contact.social": "Κοινωνικά",
       "contact.reveal": "Κάντε κλικ για εμφάνιση",
     },
     pt: {
@@ -836,6 +849,7 @@
       "contact.title": "Escreva ou ligue.",
       "contact.email": "E-mail",
       "contact.phone": "Telefone",
+      "contact.social": "Redes",
       "contact.reveal": "Clique para ver",
     },
     it: {
@@ -880,6 +894,7 @@
       "contact.title": "Scrivi o chiama.",
       "contact.email": "E-mail",
       "contact.phone": "Telefono",
+      "contact.social": "Social",
       "contact.reveal": "Clicca per vedere",
     },
   };

@@ -140,14 +140,6 @@
     if (window.innerWidth > 800) closeMenu();
   });
 
-  const cursor = document.querySelector(".cursor");
-  if (cursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.body.classList.add("fine");
-    window.addEventListener("pointermove", function (e) {
-      cursor.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)";
-    });
-  }
-
   const pano = document.getElementById("pano");
 
   function walkUrl(tour) {
@@ -240,12 +232,68 @@
     if (lenis) lenis.scrollTo(next, { immediate: true, force: true });
   }
 
+  const sceneZones = [
+    { el: document.querySelector(".hero"), scene: "scene-map" },
+    { el: document.querySelector(".survey"), scene: "scene-leaves" },
+    { el: document.querySelector('.plate[data-tour="smolarnia"]'), scene: "scene-kayak" },
+    { el: document.querySelector('.plate[data-tour="tablica"]'), scene: "scene-lupa" },
+  ];
+  const bookingEl = document.querySelector(".booking");
+  let sceneCurrent = null;
+  let scenePending = null;
+  let sceneTimer = 0;
+
+  function detectScene() {
+    const focus = innerHeight * 0.55;
+    if (bookingEl) {
+      const rb = bookingEl.getBoundingClientRect();
+      if (rb.top <= focus && rb.bottom >= focus) return "scene-calendar";
+      if (rb.top > focus && rb.top < innerHeight) return "scene-phone";
+    }
+    for (let i = 0; i < sceneZones.length; i++) {
+      const el = sceneZones[i].el;
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (r.top <= focus && r.bottom >= focus) return sceneZones[i].scene;
+    }
+    return null;
+  }
+
+  function clearScene() {
+    clearTimeout(sceneTimer);
+    scenePending = null;
+    if (sceneCurrent) {
+      figure.classList.remove(sceneCurrent);
+      sceneCurrent = null;
+    }
+  }
+
+  function applyScene(next) {
+    if (next ? next === sceneCurrent || next === scenePending : !sceneCurrent && !scenePending) return;
+    clearScene();
+    scenePending = next || null;
+    if (!next) return;
+    sceneTimer = setTimeout(function () {
+      if (scenePending !== next) return;
+      scenePending = null;
+      sceneCurrent = next;
+      figure.classList.add(next);
+      figure.classList.remove("is-walk");
+    }, 380);
+  }
+
+  function updateScene() {
+    if (dragging) return;
+    applyScene(detectScene());
+  }
+
   function parkFigure() {
     if (dragging) return;
     const y = pageY();
     const t = Math.min(1, Math.max(0, y / pageMax()));
     figure.style.top = figMin() + t * figRange() + "px";
-    figure.classList.toggle("is-walk", y > 40 && t < 0.96);
+    updateScene();
+    figure.classList.toggle("is-walk", y > 40 && t < 0.96 && !sceneCurrent);
   }
 
   function moveToClientY(clientY) {
@@ -257,6 +305,7 @@
   function startDrag(clientY) {
     dragging = true;
     dragOffset = clientY - figure.getBoundingClientRect().top;
+    clearScene();
     figure.classList.add("is-drag", "is-walk");
     if (lenis) lenis.stop();
   }
@@ -306,6 +355,15 @@
   figure.addEventListener("lostpointercapture", function () {
     if (dragging) stopDrag();
   });
+  window.addEventListener("pointerup", function () {
+    if (dragging) stopDrag();
+  });
+  window.addEventListener("pointercancel", function () {
+    if (dragging) stopDrag();
+  });
+  window.addEventListener("blur", function () {
+    if (dragging) stopDrag();
+  });
 
   window.addEventListener("scroll", parkFigure, { passive: true });
   window.addEventListener("resize", parkFigure);
@@ -315,27 +373,6 @@
     else heroPhoto.addEventListener("load", parkFigure);
   }
   parkFigure();
-
-  if (cursor) {
-    window.addEventListener("pointermove", function (e) {
-      const boxes = document.querySelectorAll(
-        ".instrument__frame, .plate__img--walk, .booking__frame, .figure"
-      );
-      let inside = false;
-      boxes.forEach(function (box) {
-        const r = box.getBoundingClientRect();
-        if (
-          e.clientX >= r.left &&
-          e.clientX <= r.right &&
-          e.clientY >= r.top &&
-          e.clientY <= r.bottom
-        ) {
-          inside = true;
-        }
-      });
-      cursor.style.opacity = inside ? "0" : "1";
-    });
-  }
 
   if (window.gsap && window.ScrollTrigger) {
     gsap.from(".note p", {

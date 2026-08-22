@@ -96,47 +96,6 @@ button {
   pointer-events: none;
 }
 
-.cursor {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  body.fine,
-  body.fine a,
-  body.fine button {
-    cursor: none;
-  }
-
-  body.fine button.figure {
-    cursor: grab;
-  }
-
-  body.fine button.figure.is-drag {
-    cursor: grabbing;
-  }
-
-  .cursor {
-    display: grid;
-    place-items: center;
-    position: fixed;
-    z-index: 80;
-    top: 0;
-    left: 0;
-    width: 22px;
-    height: 22px;
-    pointer-events: none;
-    mix-blend-mode: difference;
-  }
-
-  .cursor b {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15);
-  }
-}
-
 .boot {
   position: fixed;
   inset: 0;
@@ -354,6 +313,399 @@ button {
 @keyframes stepR {
   50% {
     transform: rotate(14deg);
+  }
+}
+
+/* ——— sceny figurki (rekwizyty + pozy per sekcja) ——— */
+
+.figure .prop {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+.figure .upper,
+.figure .head,
+.figure .arm,
+.figure .leg,
+.figure .fig-legs {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.figure .upper {
+  transform-origin: 40px 62px;
+}
+
+.figure .head {
+  transform-origin: 40px 28px;
+}
+
+.figure .arm-l {
+  transform-origin: 28px 42px;
+}
+
+.figure .arm-r {
+  transform-origin: 52px 42px;
+}
+
+.figure .upper-in,
+.figure .arm-l-in,
+.figure .arm-r-in,
+.figure .head-in {
+  transform-origin: 40px 62px;
+}
+
+.figure.scene-map .prop-mapa,
+.figure.scene-leaves .prop-lisc,
+.figure.scene-kayak .prop-kajak,
+.figure.scene-kayak .prop-wioslo,
+.figure.scene-kayak .prop-waves,
+.figure.scene-lupa .prop-lupa,
+.figure.scene-phone .prop-telefon,
+.figure.scene-phone .prop-dymki,
+.figure.scene-calendar .prop-kalendarz {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 0 — mapa na starcie (hero): studiuje mapę i rozgląda się */
+.figure.scene-map .arm-l {
+  transform: rotate(-30deg);
+}
+
+.figure.scene-map .arm-r {
+  transform: rotate(30deg);
+}
+
+.figure.scene-map .head-in {
+  transform-origin: 40px 28px;
+  animation: mapSearch 4.5s ease-in-out infinite;
+}
+
+.figure.scene-map .mapa-in {
+  transform-origin: 40px 50px;
+  animation: mapTilt 4.5s ease-in-out infinite;
+}
+
+/* 1 — zbieranie liści (spacer, jesień) */
+.figure.scene-leaves .upper {
+  transform: rotate(7deg);
+}
+
+.figure.scene-leaves .upper-in {
+  animation: leanSway 2.5s ease-in-out infinite;
+}
+
+.figure.scene-leaves .arm-r {
+  transform: rotate(45deg);
+}
+
+.figure.scene-leaves .arm-r-in {
+  animation: reachPick 2.5s ease-in-out infinite;
+}
+
+.figure.scene-leaves .leaf {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: leafFall 2.8s linear infinite;
+}
+
+.figure.scene-leaves .leaf.f2 {
+  animation-delay: 0.9s;
+}
+
+.figure.scene-leaves .leaf.f3 {
+  animation-delay: 1.8s;
+}
+
+.figure.scene-leaves .leg.l {
+  animation: stepL 0.62s ease-in-out infinite;
+}
+
+.figure.scene-leaves .leg.r {
+  animation: stepR 0.62s ease-in-out infinite;
+}
+
+/* 2 — kajak (Bukówka) */
+.figure.scene-kayak .fig-legs {
+  opacity: 0;
+}
+
+.figure.scene-kayak .upper {
+  transform: translateY(5px);
+}
+
+.figure.scene-kayak .upper-in {
+  animation: kayakRock 2s ease-in-out infinite;
+}
+
+.figure.scene-kayak .arm-l {
+  transform: rotate(-35deg);
+}
+
+.figure.scene-kayak .arm-r {
+  transform: rotate(35deg);
+}
+
+.figure.scene-kayak .row {
+  transform-origin: 40px 54px;
+  animation: paddleRow 2s ease-in-out infinite;
+}
+
+.figure.scene-kayak .wave {
+  animation: waveSway 2s ease-in-out infinite alternate;
+}
+
+.figure.scene-kayak .wave.w2 {
+  animation-delay: 0.6s;
+}
+
+/* 3 — lupa (tablica) */
+.figure.scene-lupa .arm-r {
+  transform: rotate(-75deg);
+}
+
+.figure.scene-lupa .head {
+  transform: rotate(8deg);
+}
+
+.figure.scene-lupa .lupa-in {
+  animation: lupaScan 3s ease-in-out infinite;
+}
+
+/* 4 — nerwowy telefon (przed rezerwacją) */
+.figure.scene-phone {
+  animation: figJitter 0.18s linear infinite;
+}
+
+.figure.scene-phone .arm-r {
+  transform: rotate(-75deg);
+}
+
+.figure.scene-phone .arm-l {
+  transform: rotate(-55deg);
+}
+
+.figure.scene-phone .arm-l-in {
+  transform-origin: 28px 42px;
+  animation: gestureL 0.9s ease-in-out infinite;
+}
+
+.figure.scene-phone .leg.r {
+  animation: tapFoot 0.45s ease-in-out infinite;
+}
+
+.figure.scene-phone .dot {
+  animation: dotPulse 0.9s ease-in-out infinite;
+}
+
+.figure.scene-phone .dot.d2 {
+  animation-delay: 0.15s;
+}
+
+.figure.scene-phone .dot.d3 {
+  animation-delay: 0.3s;
+}
+
+/* 5 — kalendarz (rezerwacja) */
+.figure.scene-calendar .arm-l {
+  transform: rotate(-80deg);
+}
+
+.figure.scene-calendar .arm-r {
+  transform: rotate(80deg);
+}
+
+.figure.scene-calendar .head {
+  transform: rotate(9deg);
+}
+
+.figure.scene-calendar .head-in {
+  transform-origin: 40px 28px;
+  animation: headScan 3s ease-in-out infinite;
+}
+
+.figure.scene-calendar .cal-day {
+  animation: dayPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes mapSearch {
+  0%,
+  28% {
+    transform: translate(0, 2.5px);
+  }
+  38%,
+  50% {
+    transform: translate(-3.5px, 0);
+  }
+  60%,
+  72% {
+    transform: translate(3.5px, 0);
+  }
+  82%,
+  100% {
+    transform: translate(0, 2.5px);
+  }
+}
+
+@keyframes mapTilt {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes leanSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes reachPick {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  45%,
+  60% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  25% {
+    transform: translate(6px, 28px) rotate(70deg);
+  }
+  50% {
+    transform: translate(-5px, 56px) rotate(150deg);
+  }
+  75% {
+    transform: translate(5px, 84px) rotate(230deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-3px, 112px) rotate(310deg);
+    opacity: 0;
+  }
+}
+
+@keyframes kayakRock {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes paddleRow {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes waveSway {
+  from {
+    transform: translateX(-4px);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes lupaScan {
+  0%,
+  100% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes figJitter {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes gestureL {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-18deg);
+  }
+}
+
+@keyframes tapFoot {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes headScan {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes dayPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
   }
 }
 
@@ -813,6 +1165,39 @@ button {
   display: inline-block;
 }
 
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+  margin-top: 4px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--void);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  border-bottom-color: rgba(154, 74, 42, 0.45);
+  color: #9a4a2a;
+}
+
+.social svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 .colophon footer {
   margin-top: 64px;
   display: flex;
@@ -956,5 +1341,20 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .figure.is-walk .leg {
     animation: none;
+  }
+
+  .figure,
+  .figure .upper-in,
+  .figure .arm-l-in,
+  .figure .arm-r-in,
+  .figure .head-in,
+  .figure .leaf,
+  .figure .wave,
+  .figure .dot,
+  .figure .cal-day,
+  .figure .row,
+  .figure .lupa-in,
+  .figure .leg {
+    animation: none !important;
   }
 }
