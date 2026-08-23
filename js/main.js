@@ -107,7 +107,12 @@
   if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
   if (window.Lenis && !reduceMotion) {
-    lenis = new Lenis({ lerp: 0.07 });
+    lenis = new Lenis({
+      lerp: 0.07,
+      prevent: function (node) {
+        return !!(node.closest && node.closest("[data-lenis-prevent]"));
+      },
+    });
     function raf(t) {
       lenis.raf(t);
       requestAnimationFrame(raf);
