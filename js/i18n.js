@@ -228,8 +228,95 @@
       "nav.lang": "Język",
       "nav.menuOpen": "Otwórz menu",
       "nav.menuClose": "Zamknij menu",
+      "nav.business": "Dla biznesu",
       "nav.booking": "Rezerwacja",
       "nav.contact": "Kontakt",
+      "selector.kicker": "Wirtualne spacery 360°",
+      "selector.title": "Wybierz typ wirtualnego spaceru.",
+      "selector.lead":
+        "Zobacz ofertę dopasowaną do miejsca, które chcesz pokazać na Mapach Google.",
+      "selector.trails.eyebrow": "Trasy i natura",
+      "selector.trails.title": "Ścieżki dydaktyczne i obiekty przyrody",
+      "selector.trails.body":
+        "Ścieżki, obiekty turystyczne i miejsca w naturze.",
+      "selector.trails.action": "Zobacz ofertę →",
+      "selector.business.eyebrow": "Wnętrza i biznes",
+      "selector.business.title": "Wnętrza lokali",
+      "selector.business.body":
+        "Restauracje, hotele, kawiarnie, salony i obiekty sportowe. Pokaż wnętrze jeszcze przed wizytą.",
+      "selector.business.action": "Zobacz ofertę →",
+      "business.meta.title": "Skanowski — wirtualne spacery dla biznesu",
+      "business.meta.description":
+        "Wirtualne spacery 360° dla restauracji, hoteli, kawiarni, salonów i obiektów sportowych — na Mapach Google.",
+      "business.nav.benefits": "Korzyści",
+      "business.nav.work": "Realizacje",
+      "business.nav.trails": "Trasy i natura ↗",
+      "business.hero.kicker": "Wirtualne spacery dla biznesu",
+      "business.hero.title":
+        "Nie opowiadaj o wnętrzu.<br /><em>Pokaż je.</em>",
+      "business.hero.lead":
+        "Klient może wejść do restauracji, hotelu, salonu albo obiektu sportowego jeszcze przed wizytą — bezpośrednio z Map Google.",
+      "business.hero.ctaWork": "Zobacz realizacje",
+      "business.hero.ctaContact": "Zapytaj o termin",
+      "business.promise.kicker": "01 — Pierwsze wrażenie",
+      "business.promise.title":
+        "Twój lokal jest częścią decyzji.<br /><em>Pokaż atmosferę, zanim otworzysz drzwi.</em>",
+      "business.promise.body":
+        "Gość sprawdzi układ sali, rodzic obejrzy obiekt sportowy, a klient zobaczy ekspozycję. Jeden spacer odpowiada na pytania, których nie da się zamknąć w pojedynczym zdjęciu.",
+      "business.benefits.kicker": "02 — Co zyskujesz",
+      "business.benefits.title": "Przestrzeń pracuje także online.",
+      "business.benefit.visit.title": "Transparentność buduje zaufanie",
+      "business.benefit.visit.body":
+        "Klient widzi prawdziwe wnętrze, jego układ i charakter. Wie, czego się spodziewać przed wizytą.",
+      "business.benefit.maps.title": "W wizytówce Google",
+      "business.benefit.maps.body":
+        "Spacer Google Street View może być widoczny w zdjęciach wizytówki — tam, gdzie klienci już szukają informacji.",
+      "business.benefit.detail.title": "Mniej porzuconych decyzji",
+      "business.benefit.detail.body":
+        "Spacer odpowiada na pytanie „jak jest w środku?” i ułatwia podjęcie decyzji o kontakcie lub przyjeździe.",
+      "business.benefit.hosting.title": "Bez opłat za hosting",
+      "business.benefit.hosting.body":
+        "Po publikacji spacer Google Street View nie wymaga abonamentu ani osobnej opłaty za utrzymanie hostingu.",
+      "business.benefits.questionKicker": "Najprostsze pytanie",
+      "business.benefits.question":
+        "Zdarzyło Ci się zrezygnować z odwiedzenia miejsca, bo nie wiedziałeś, jak wygląda w środku?",
+      "business.benefits.answer":
+        "Taką samą decyzję podejmują Twoi klienci. Wirtualny spacer usuwa tę barierę, zanim opuszczą wizytówkę lub stronę.",
+      "business.work.kicker": "03 — Realizacje",
+      "business.work.title": "Wejdź i rozejrzyj się.",
+      "business.work.lead":
+        "Przeciągnij obraz albo użyj strzałek. Każde z poniższych ujęć działa bezpośrednio w Mapach Google.",
+      "business.work.hint": "przeciągnij · rozejrzyj się",
+      "business.work.open": "Otwórz spacer w Mapach Google ↗",
+      "business.tour.two.iframe": "Wirtualny spacer — realizacja 02",
+      "business.tour.two.type": "Salon beauty · Chodzież",
+      "business.tour.two.title": "Backstage Academy",
+      "business.tour.three.iframe": "Wirtualny spacer — realizacja 03",
+      "business.tour.three.type": "Kawiarnia · Czarnków",
+      "business.tour.three.title": "Melanż Cafe",
+      "business.tour.skarpa.type": "Obiekt sportowy · Bytom",
+      "business.tour.skarpa.iframe":
+        "Skarpa Bytom Rozbark — wirtualny spacer",
+      "business.tour.meble.type": "Salon meblowy · Piła",
+      "business.tour.meble.iframe":
+        "Meble u Jędrusia — wirtualny spacer",
+      "business.process.kicker": "04 — Jak powstaje spacer",
+      "business.process.title": "Od wejścia do publikacji.",
+      "business.process.plan.title": "Ustalamy trasę",
+      "business.process.plan.body":
+        "Wybieramy najważniejsze wnętrza i miejsca, które powinien zobaczyć klient.",
+      "business.process.photo.title": "Fotografuję obiekt",
+      "business.process.photo.body":
+        "Sesję planujemy tak, żeby pokazać przestrzeń w jej najlepszym, naturalnym świetle.",
+      "business.process.publish.title": "Składam i publikuję",
+      "business.process.publish.body":
+        "Łączę ujęcia w spacer i przygotowuję go do wygodnego oglądania online.",
+      "business.booking.kicker": "05 — Rezerwacja",
+      "business.contact.kicker": "06 — Kontakt",
+      "business.contact.title":
+        "Pokażmy miejsce,<br /><em>do którego chce się wejść.</em>",
+      "business.contact.body":
+        "Napisz, jaki obiekt chcesz pokazać. Ustalimy zakres, najlepszy termin i trasę spaceru.",
       "figure.aria": "Przewodnik ścieżki — przeciągnij, aby przewinąć stronę",
       "hero.alt": "Jesienna droga i drzewo",
       "hero.sub":
@@ -273,8 +360,95 @@
       "nav.lang": "Language",
       "nav.menuOpen": "Open menu",
       "nav.menuClose": "Close menu",
+      "nav.business": "For business",
       "nav.booking": "Booking",
       "nav.contact": "Contact",
+      "selector.kicker": "360° virtual tours",
+      "selector.title": "Choose the type of virtual tour.",
+      "selector.lead":
+        "See the offer tailored to the place you want to showcase on Google Maps.",
+      "selector.trails.eyebrow": "Trails and nature",
+      "selector.trails.title": "Educational trails and nature sites",
+      "selector.trails.body":
+        "Trails, tourist attractions, and places in nature.",
+      "selector.trails.action": "See the offer →",
+      "selector.business.eyebrow": "Interiors and business",
+      "selector.business.title": "Venue interiors",
+      "selector.business.body":
+        "Restaurants, hotels, cafés, salons, and sports venues. Show the interior before guests arrive.",
+      "selector.business.action": "See the offer →",
+      "business.meta.title": "Skanowski — virtual tours for business",
+      "business.meta.description":
+        "360° virtual tours for restaurants, hotels, cafés, salons, and sports venues — on Google Maps.",
+      "business.nav.benefits": "Benefits",
+      "business.nav.work": "Work",
+      "business.nav.trails": "Trails and nature ↗",
+      "business.hero.kicker": "Virtual tours for business",
+      "business.hero.title":
+        "Don’t describe the interior.<br /><em>Show it.</em>",
+      "business.hero.lead":
+        "Let customers step inside a restaurant, hotel, showroom, or sports venue before they visit — directly from Google Maps.",
+      "business.hero.ctaWork": "See the work",
+      "business.hero.ctaContact": "Ask about a date",
+      "business.promise.kicker": "01 — First impression",
+      "business.promise.title":
+        "Your venue is part of the decision.<br /><em>Show the atmosphere before you open the door.</em>",
+      "business.promise.body":
+        "A guest can check the room layout, a parent can see a sports venue, and a customer can browse the display. One tour answers questions a single photo cannot.",
+      "business.benefits.kicker": "02 — What you gain",
+      "business.benefits.title": "Your space works online, too.",
+      "business.benefit.visit.title": "Transparency builds trust",
+      "business.benefit.visit.body":
+        "Customers see the real interior, its layout, and its character. They know what to expect before visiting.",
+      "business.benefit.maps.title": "In your Google listing",
+      "business.benefit.maps.body":
+        "A Google Street View tour can appear among your listing photos — where customers already look for information.",
+      "business.benefit.detail.title": "Fewer abandoned decisions",
+      "business.benefit.detail.body":
+        "The tour answers “what is it like inside?” and makes it easier to decide whether to contact or visit.",
+      "business.benefit.hosting.title": "No hosting fees",
+      "business.benefit.hosting.body":
+        "Once published, a Google Street View tour requires no subscription or separate hosting maintenance fee.",
+      "business.benefits.questionKicker": "The simplest question",
+      "business.benefits.question":
+        "Have you ever skipped a place because you did not know what it looked like inside?",
+      "business.benefits.answer":
+        "Your customers make the same decision. A virtual tour removes that barrier before they leave your listing or website.",
+      "business.work.kicker": "03 — Work",
+      "business.work.title": "Step inside and look around.",
+      "business.work.lead":
+        "Drag the view or use the arrows. Every scene below works directly in Google Maps.",
+      "business.work.hint": "drag · look around",
+      "business.work.open": "Open the tour in Google Maps ↗",
+      "business.tour.two.iframe": "Virtual tour — project 02",
+      "business.tour.two.type": "Beauty salon · Chodzież",
+      "business.tour.two.title": "Backstage Academy",
+      "business.tour.three.iframe": "Virtual tour — project 03",
+      "business.tour.three.type": "Café · Czarnków",
+      "business.tour.three.title": "Melanż Cafe",
+      "business.tour.skarpa.type": "Sports venue · Bytom",
+      "business.tour.skarpa.iframe":
+        "Skarpa Bytom Rozbark — virtual tour",
+      "business.tour.meble.type": "Furniture showroom · Piła",
+      "business.tour.meble.iframe":
+        "Meble u Jędrusia — virtual tour",
+      "business.process.kicker": "04 — How the tour is made",
+      "business.process.title": "From entrance to publication.",
+      "business.process.plan.title": "We plan the route",
+      "business.process.plan.body":
+        "We choose the key rooms and areas your customers should see.",
+      "business.process.photo.title": "I photograph the venue",
+      "business.process.photo.body":
+        "We schedule the shoot to show the space in its best, natural light.",
+      "business.process.publish.title": "I build and publish it",
+      "business.process.publish.body":
+        "I connect the scenes into a tour and prepare it for comfortable online viewing.",
+      "business.booking.kicker": "05 — Booking",
+      "business.contact.kicker": "06 — Contact",
+      "business.contact.title":
+        "Let’s show a place<br /><em>people want to enter.</em>",
+      "business.contact.body":
+        "Tell me what venue you want to show. We’ll agree on the scope, the best date, and the route.",
       "figure.aria": "Path guide — drag to scroll the page",
       "hero.alt": "Autumn road and a tree",
       "hero.sub":
@@ -1046,9 +1220,13 @@
 
   function apply() {
     document.documentElement.lang = lang;
-    document.title = t("meta.title");
+    var metaRoot =
+      document.body && document.body.classList.contains("business-page")
+        ? "business.meta"
+        : "meta";
+    document.title = t(metaRoot + ".title");
     var meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t("meta.description"));
+    if (meta) meta.setAttribute("content", t(metaRoot + ".description"));
     if (codeEl) codeEl.textContent = lang.toUpperCase();
 
     fill("[data-i18n]", "data-i18n", false);

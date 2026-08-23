@@ -16,30 +16,93 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  const boot = document.getElementById("boot");
-  function hideBoot() {
-    if (!boot || boot.dataset.gone) return;
-    boot.dataset.gone = "1";
-    if (window.gsap) {
-      gsap.to(boot, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: function () {
-          boot.remove();
-        },
-      });
-    } else boot.remove();
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lenis = null;
+  const serviceGate = document.getElementById("service-gate");
+  const chooseTrails = document.getElementById("choose-trails");
+  const pageRegions = document.querySelectorAll(".bar, .figure, main");
+
+  function setPageInert(inert) {
+    pageRegions.forEach(function (region) {
+      region.inert = inert;
+    });
   }
+
+  function showServiceGate() {
+    if (!serviceGate || serviceGate.dataset.visible) return;
+    serviceGate.dataset.visible = "1";
+    serviceGate.hidden = false;
+    document.documentElement.classList.add("service-gate-open");
+    setPageInert(true);
+    if (lenis) lenis.stop();
+
+    requestAnimationFrame(function () {
+      serviceGate.classList.add("is-visible");
+    });
+
+    setTimeout(function () {
+      if (chooseTrails) chooseTrails.focus({ preventScroll: true });
+    }, reduceMotion ? 0 : 520);
+  }
+
+  function closeServiceGate() {
+    if (!serviceGate || !serviceGate.dataset.visible) return;
+    delete serviceGate.dataset.visible;
+    serviceGate.classList.remove("is-visible");
+
+    setTimeout(function () {
+      if (serviceGate.dataset.visible) return;
+      serviceGate.hidden = true;
+      document.documentElement.classList.remove("service-gate-open");
+      setPageInert(false);
+      if (lenis) lenis.start();
+    }, reduceMotion ? 0 : 450);
+  }
+
+  if (serviceGate) {
+    document.documentElement.classList.add("service-gate-open");
+    setPageInert(true);
+  }
+  if (chooseTrails) chooseTrails.addEventListener("click", closeServiceGate);
+
+  const boot = document.getElementById("boot");
+  const bootStarted = performance.now();
+  let bootQueued = false;
+
+  function hideBoot() {
+    if (!boot) {
+      showServiceGate();
+      return;
+    }
+    if (boot.dataset.gone || bootQueued) return;
+    bootQueued = true;
+
+    const minimum = reduceMotion ? 250 : 1100;
+    const wait = Math.max(0, minimum - (performance.now() - bootStarted));
+
+    setTimeout(function () {
+      if (boot.dataset.gone) return;
+      boot.dataset.gone = "1";
+      showServiceGate();
+      if (window.gsap && !reduceMotion) {
+        gsap.to(boot, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          onComplete: function () {
+            boot.remove();
+          },
+        });
+      } else boot.remove();
+    }, wait);
+  }
+
   if (document.readyState === "complete") hideBoot();
   else {
     document.addEventListener("DOMContentLoaded", hideBoot);
     window.addEventListener("load", hideBoot);
   }
-  setTimeout(hideBoot, 1600);
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let lenis = null;
+  setTimeout(hideBoot, 1800);
 
   if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
