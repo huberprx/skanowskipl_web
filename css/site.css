@@ -138,6 +138,7 @@ button {
 html.service-gate-open,
 html.service-gate-open body {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .service-gate[hidden] {
@@ -148,15 +149,7 @@ html.service-gate-open body {
   position: fixed;
   inset: 0;
   z-index: 80;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  padding: 24px;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.45s ease, visibility 0.45s ease;
@@ -170,6 +163,8 @@ html.service-gate-open body {
 .service-gate__backdrop {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(circle at 50% 42%, rgba(212, 168, 75, 0.08), transparent 38%),
     rgba(5, 7, 6, 0.84);
@@ -177,10 +172,22 @@ html.service-gate-open body {
   -webkit-backdrop-filter: blur(16px) saturate(0.65);
 }
 
+.service-gate__scroll {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  padding: 24px;
+}
+
 .service-gate__panel {
   position: relative;
   width: min(840px, 100%);
-  margin-block: auto;
+  margin: 0 auto;
   padding: clamp(22px, 4vw, 38px);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 34%),
@@ -1461,14 +1468,30 @@ dd.is-open .reveal__val {
   width: 36px;
 }
 
+@media (min-width: 801px) {
+  .service-gate__scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: safe center;
+  }
+}
+
 @media (max-width: 800px) {
-  .service-gate {
-    padding: max(10px, env(safe-area-inset-top, 0px)) 10px
-      max(12px, env(safe-area-inset-bottom, 0px));
+  .service-gate__scroll {
+    padding: max(12px, env(safe-area-inset-top, 0px)) 10px
+      max(16px, env(safe-area-inset-bottom, 0px));
   }
 
   .service-gate__panel {
+    width: 100%;
     padding: 16px 14px 14px;
+    transform: none;
+    transition: none;
+  }
+
+  .service-gate.is-visible .service-gate__panel {
+    transform: none;
   }
 
   .service-gate__head {
@@ -1532,8 +1555,13 @@ dd.is-open .reveal__val {
   }
 
   @media (max-height: 680px) {
+    .service-gate__head > p:first-child,
     .service-gate__head > p:last-child {
       display: none;
+    }
+
+    .service-gate__head h2 {
+      font-size: clamp(22px, 6.4vw, 30px);
     }
   }
 

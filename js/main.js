@@ -34,14 +34,16 @@
     serviceGate.hidden = false;
     document.documentElement.classList.add("service-gate-open");
     setPageInert(true);
-    if (lenis) lenis.stop();
 
     requestAnimationFrame(function () {
       serviceGate.classList.add("is-visible");
     });
 
     setTimeout(function () {
-      if (chooseTrails) chooseTrails.focus({ preventScroll: true });
+      if (!chooseTrails) return;
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        chooseTrails.focus({ preventScroll: true });
+      }
     }, reduceMotion ? 0 : 520);
   }
 
@@ -55,7 +57,6 @@
       serviceGate.hidden = true;
       document.documentElement.classList.remove("service-gate-open");
       setPageInert(false);
-      if (lenis) lenis.start();
     }, reduceMotion ? 0 : 450);
   }
 
@@ -109,8 +110,8 @@
   if (window.Lenis && !reduceMotion) {
     lenis = new Lenis({
       lerp: 0.07,
-      prevent: function (node) {
-        return !!(node.closest && node.closest("[data-lenis-prevent]"));
+      prevent: function () {
+        return document.documentElement.classList.contains("service-gate-open");
       },
     });
     function raf(t) {
