@@ -357,6 +357,11 @@
       "orderFlow.lead":
         "Wirtualne spacery ścieżek dydaktycznych na Mapach Google.",
       "orderFlow.footerLink": "Przebieg realizacji",
+      "orderFlow.back": "← Ścieżki dydaktyczne",
+      "orderFlow.backShort": "Ścieżki",
+      "orderFlow.meta.title": "Skanowski — przebieg realizacji zamówienia",
+      "orderFlow.meta.description":
+        "Przebieg realizacji wirtualnych spacerów ścieżek dydaktycznych na Mapach Google.",
       "orderFlow.1.title": "Ustalenie zakresu",
       "orderFlow.1.body":
         "<p>Ustalenie przebiegu ścieżki oraz wskazanie tablic informacyjnych i innych elementów, które mają zostać ujęte w wirtualnym spacerze.</p>",
@@ -515,6 +520,11 @@
       "orderFlow.lead":
         "Virtual tours of educational trails on Google Maps.",
       "orderFlow.footerLink": "Order process",
+      "orderFlow.back": "← Educational trails",
+      "orderFlow.backShort": "Trails",
+      "orderFlow.meta.title": "Skanowski — order fulfillment process",
+      "orderFlow.meta.description":
+        "How virtual tours of educational trails are produced and published on Google Maps.",
       "orderFlow.1.title": "Agreeing the scope",
       "orderFlow.1.body":
         "<p>Agree the trail route and indicate information boards and other elements to include in the virtual tour.</p>",
@@ -1272,10 +1282,12 @@
 
   function apply() {
     document.documentElement.lang = lang;
-    var metaRoot =
-      document.body && document.body.classList.contains("business-page")
-        ? "business.meta"
-        : "meta";
+    var metaRoot = "meta";
+    if (document.body && document.body.classList.contains("business-page")) {
+      metaRoot = "business.meta";
+    } else if (document.body && document.body.classList.contains("order-flow-page")) {
+      metaRoot = "orderFlow.meta";
+    }
     document.title = t(metaRoot + ".title");
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", t(metaRoot + ".description"));

@@ -16,6 +16,10 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
+  if (location.hash === "#przebieg") {
+    location.replace("przebieg-realizacji.html");
+  }
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let lenis = null;
   const serviceGate = document.getElementById("service-gate");
