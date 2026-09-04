@@ -1455,9 +1455,101 @@ dd.is-open .reveal__val {
   flex-shrink: 0;
 }
 
+.order-flow {
+  scroll-margin-top: 96px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(11, 14, 12, 0.12);
+  max-width: 920px;
+}
+
+.order-flow__kicker {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9a4a2a;
+  margin-bottom: 12px;
+}
+
+.colophon .order-flow__title {
+  font-size: clamp(28px, 4.6vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.order-flow__lead {
+  max-width: 46ch;
+  margin-bottom: 28px;
+  color: #5c5348;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.order-flow ol {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(11, 14, 12, 0.12);
+}
+
+.order-flow li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(11, 14, 12, 0.12);
+}
+
+.order-flow li > span {
+  color: #9a4a2a;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  padding-top: 6px;
+}
+
+.order-flow h3 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.order-flow__copy p {
+  color: #5c5348;
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 62ch;
+}
+
+.order-flow__copy p + p {
+  margin-top: 8px;
+}
+
+.order-flow__copy a {
+  color: inherit;
+  border-bottom: 1px solid rgba(154, 74, 42, 0.4);
+  padding-bottom: 1px;
+}
+
+.order-flow__copy a:hover,
+.order-flow__copy a:focus-visible {
+  color: #9a4a2a;
+}
+
+.order-flow__time {
+  color: #9a4a2a !important;
+  font-size: 13px !important;
+  letter-spacing: 0.02em;
+}
+
 .colophon footer {
   margin-top: 64px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 14px;
   color: #7a6e5e;
@@ -1466,6 +1558,34 @@ dd.is-open .reveal__val {
 
 .colophon footer img {
   width: 36px;
+}
+
+.colophon footer a {
+  color: inherit;
+  border-bottom: 1px solid rgba(154, 74, 42, 0.35);
+  padding-bottom: 1px;
+}
+
+.colophon footer a:hover,
+.colophon footer a:focus-visible {
+  color: #9a4a2a;
+}
+
+@media (max-width: 800px) {
+  .order-flow {
+    margin-top: 52px;
+    padding-top: 32px;
+  }
+
+  .order-flow li {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px;
+    padding: 16px 0;
+  }
+
+  .order-flow__copy p {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 801px) {

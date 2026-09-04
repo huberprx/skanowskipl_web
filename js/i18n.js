@@ -352,6 +352,32 @@
       "contact.phone": "Telefon",
       "contact.social": "Social",
       "contact.reveal": "Kliknij, by zobaczyć",
+      "orderFlow.kicker": "Ścieżki dydaktyczne",
+      "orderFlow.title": "Przebieg realizacji zamówienia",
+      "orderFlow.lead":
+        "Wirtualne spacery ścieżek dydaktycznych na Mapach Google.",
+      "orderFlow.footerLink": "Przebieg realizacji",
+      "orderFlow.1.title": "Ustalenie zakresu",
+      "orderFlow.1.body":
+        "<p>Ustalenie przebiegu ścieżki oraz wskazanie tablic informacyjnych i innych elementów, które mają zostać ujęte w wirtualnym spacerze.</p>",
+      "orderFlow.2.title": "Utworzenie wizytówki Google",
+      "orderFlow.2.body":
+        "<p>Jeżeli obiekt nie posiada odpowiedniej wizytówki („pinezki”) na Mapach Google, Zleceniobiorca może ją utworzyć. Następnie Zleceniodawca przejmuje prawa do wizytówki i możliwość samodzielnego zarządzania jej treścią.</p>",
+      "orderFlow.3.title": "Wykonanie zdjęć",
+      "orderFlow.3.body":
+        '<p>Wykonanie zdjęć sferycznych w terenie zgodnie z ustalonym przebiegiem ścieżki.</p><p class="order-flow__time">Czas realizacji: 1,5 dnia roboczego na każdy kilometr ścieżki.</p>',
+      "orderFlow.4.title": "Obróbka zdjęć",
+      "orderFlow.4.body":
+        '<p>Połączenie ujęć w panoramy sferyczne, korekta obrazu oraz przygotowanie zdjęć do publikacji. Na każdej panoramie zostanie umieszczone logo Zleceniodawcy w dolnej części obrazu.</p><p class="order-flow__time">Czas realizacji: około 1 dzień roboczy na każdy kilometr ścieżki.</p>',
+      "orderFlow.5.title": "Utworzenie wirtualnego spaceru",
+      "orderFlow.5.body":
+        '<p>Umieszczenie przygotowanych panoram w serwisie <a href="https://gothru.co" target="_blank" rel="noopener noreferrer">gothru.co</a> oraz połączenie ich aktywnymi przejściami.</p><p>Zleceniodawca przekaże Zleceniobiorcy dane niezbędne do utworzenia i obsługi spaceru w ramach konta gothru.co Zleceniodawcy.</p><p class="order-flow__time">Czas realizacji: około 1 dzień roboczy na każdy kilometr ścieżki.</p>',
+      "orderFlow.6.title": "Publikacja i kontrola na Mapach Google",
+      "orderFlow.6.body":
+        "<p>Umieszczenie panoram w odpowiednich lokalizacjach na Mapach Google oraz podpięcie wirtualnego spaceru pod wizytówkę obiektu.</p><p>Po publikacji zostanie sprawdzona poprawność połączeń pomiędzy panoramami, ich lokalizacja oraz prawidłowe działanie spaceru na Mapach Google.</p>",
+      "orderFlow.7.title": "Przekazanie materiałów i szkolenie",
+      "orderFlow.7.body":
+        '<p>Przekazanie Zleceniodawcy wykonanych zdjęć oraz dostępu do wirtualnego spaceru i narzędzi służących do jego zarządzania.</p><p>Zleceniobiorca przeprowadzi krótkie szkolenie z obsługi <a href="https://gothru.co" target="_blank" rel="noopener noreferrer">gothru.co</a>, obejmujące m.in. edycję spaceru, dodawanie zdjęć oraz zarządzanie połączeniami pomiędzy panoramami.</p>',
     },
     en: {
       "meta.title": "Skanowski — virtual walks",
@@ -484,6 +510,32 @@
       "contact.phone": "Phone",
       "contact.social": "Social",
       "contact.reveal": "Click to reveal",
+      "orderFlow.kicker": "Educational trails",
+      "orderFlow.title": "Order fulfillment process",
+      "orderFlow.lead":
+        "Virtual tours of educational trails on Google Maps.",
+      "orderFlow.footerLink": "Order process",
+      "orderFlow.1.title": "Agreeing the scope",
+      "orderFlow.1.body":
+        "<p>Agree the trail route and indicate information boards and other elements to include in the virtual tour.</p>",
+      "orderFlow.2.title": "Creating a Google profile",
+      "orderFlow.2.body":
+        "<p>If the site does not have a suitable Google Maps pin, the contractor may create one. The client then takes over the profile and can manage its content independently.</p>",
+      "orderFlow.3.title": "Taking the photographs",
+      "orderFlow.3.body":
+        '<p>Spherical photographs are taken on site along the agreed trail route.</p><p class="order-flow__time">Production time: 1.5 working days per kilometre of trail.</p>',
+      "orderFlow.4.title": "Image processing",
+      "orderFlow.4.body":
+        '<p>Shots are stitched into spherical panoramas, colour-corrected and prepared for publication. The client’s logo is placed at the bottom of each panorama.</p><p class="order-flow__time">Production time: about 1 working day per kilometre of trail.</p>',
+      "orderFlow.5.title": "Building the virtual tour",
+      "orderFlow.5.body":
+        '<p>The prepared panoramas are placed on <a href="https://gothru.co" target="_blank" rel="noopener noreferrer">gothru.co</a> and linked with active transitions.</p><p>The client will provide the contractor with the data needed to create and operate the tour in the client’s gothru.co account.</p><p class="order-flow__time">Production time: about 1 working day per kilometre of trail.</p>',
+      "orderFlow.6.title": "Publication and checks on Google Maps",
+      "orderFlow.6.body":
+        "<p>Panoramas are placed at the correct locations on Google Maps and the virtual tour is attached to the site’s profile.</p><p>After publication, panorama connections, their locations and the tour’s operation on Google Maps are checked.</p>",
+      "orderFlow.7.title": "Handover and training",
+      "orderFlow.7.body":
+        '<p>The client receives the photographs and access to the virtual tour and the tools used to manage it.</p><p>The contractor will give a short training session on <a href="https://gothru.co" target="_blank" rel="noopener noreferrer">gothru.co</a>, covering editing the tour, adding photos and managing connections between panoramas.</p>',
     },
     de: {
       "meta.title": "Skanowski — virtuelle Spaziergänge",
