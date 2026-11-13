@@ -1370,3 +1370,14 @@
     },
   };
 })();
+
+// Google Analytics: zliczanie kliknięć w telefon i e-mail (kluczowe zdarzenia)
+document.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+  if (!a || typeof gtag !== "function") return;
+  var href = a.getAttribute("href") || "";
+  gtag("event", href.indexOf("tel:") === 0 ? "kontakt_telefon" : "kontakt_email", {
+    link_url: href,
+    page_location: window.location.href,
+  });
+});
